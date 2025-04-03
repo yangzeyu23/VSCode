@@ -1,0 +1,275 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{真空二极管实验报告}
+\class{物理 32}
+\name{杨泽宇}
+\id{2023011329}
+
+\begin{document}
+\maketitle
+
+\section*{摘要}
+本实验针对真空二极管的热电子发射问题，设计电路，探究了磁场大小及加速电压大小对真空二极管发射电流的影响。同时，利用真空二极管的磁场效应测定了电子的荷质比，并测定了热发射电子的速率分布。结果显示，测定的荷质比与速率分布都比较符合理论预期。
+
+\section*{一\quad 实验原理}
+
+\begin{figure}[H]
+  \begin{minipage}[c]{0.5\linewidth}
+    \includegraphics[width=\linewidth]{1.png}
+    \caption*{图$1.$真空二极管示意图及测试电路}
+   \end{minipage}
+    \hspace{0.25cm}
+    \begin{minipage}[c]{0.5\linewidth}
+        真空二极管的阴极通电并加热到约2000K时，将克服表面势垒向外发射电子。阴极越热，单位时间内逸出的电子越多。如图1所示，在阳极和阴极之间施加加速电压$U_a$，则电子将发生定向移动形成发射电流$I_e$。\\
+
+    除加速电压外，再沿阳极的轴向施加一个均匀磁场，则发射电子轨迹将变为半径为$r$的圆弧：
+\begin{equation}
+  r=\frac{m_ev^2}{eB}\tag{1}
+\end{equation}
+    \end{minipage}
+\end{figure}
+
+如果增大磁场，则当达到某个临界值时，电子轨道恰无法到达阳极，此时阳极电流将急剧下降。可以证明，临界励磁电流$I_C$对应的临界磁场$B_C$与加速电压平均值$Ua'$满足关系式：
+\begin{equation}
+  B_C^2=\frac{8m_eU_a'}{eb^2}\tag{2}
+\end{equation}
+其中$m$是电子质量，$e$是元电荷，$b=4.55\times 10^{-3}$  $\mathrm{m}$是阳极半径。
+\section*{二\quad 实验仪器及实验内容}
+\subsection*{1.\quad 仪器介绍}
+本实验主要仪器包括：1.三路输出稳压稳流直流电源（其中CH1提供励磁电流，CH2提供加速电压，CH3提供灯丝电流）；2.数字万用表（用于测定发射电流）；3.真空二极管；4.亥姆霍兹线圈（提供磁场）；5.特斯拉计；6.电阻板；7.导线若干。
+\subsection*{2.\quad 实验步骤}
+\clearpage
+\subsubsection*{A\quad 连接电路}
+\noindent 按照图1连接电路，预置电源三通道值为：CH1: 60V, 0A; CH2: 0V, 0.005A; CH3: 5V, 0.6A。\\
+\noindent \textbf{1.判断亥姆霍兹线圈的两个线圈各自产生的磁场方向。}   先将电源CH1的正极和负极分别与亥姆霍兹线圈的左侧线圈正负极相接，用特斯拉计测量塑料板中间位置C点处的磁感应强度大小及方向（注意应使探头前方的黑色霍尔效应元件垂直于磁场方向）;再与右侧线圈正负极相接，重复上述测量。判断线圈磁场方向后将亥姆霍兹线圈串联顺接，使用电源CH1提供励磁电流$I_M$，暂时设定$I_M=0.0\mathrm{A}$。\\
+\noindent 2.设定电源CH1为$0.5\mathrm{A}$，用特斯拉计测试线圈透明塑料板四角上螺孔处和中间位置C点处的磁感应强度，并计算平均值。\\
+\noindent 3.以$0.2\mathrm{A}$为间隔，测试励磁电流$I_M$在$0.0\mathrm{A}\sim 1.4\mathrm{A}$范围内C点处的磁感应强度$B$。测试结束后设置励磁电流$I_M=0.0\mathrm{A}$，避免亥姆霍兹线圈长时间通大电流。直线拟合求出$B$与$I_M$的关系式。
+\subsubsection*{B\quad 加速电压$U_a$，磁感应强度$B$与真空二极管发射电流$I_e$之间的关系}
+\noindent 1.将加速电压设为$4\mathrm{V}$，改变励磁电流$I_M$，测试真空二极管发射电流$I_e$与励磁电流$I_M$的关系。先以$0.1\mathrm{A}$为步进间隔，粗调$I_M$来观察$I_e$变化情况，再选择合适的间隔测试。测试结束后设定励磁电流$I_M=0.0\mathrm{A}$。\\
+\noindent 2.将加速电压分别设为$6\mathrm{V}$，$8\mathrm{V}$，$10\mathrm{V}$，测试发射电流$I_e$与励磁电流$I_M$的关系。每组测试结束后设置励磁电流$I_M=0.0\mathrm{A}$。\\
+\noindent 3.确认励磁电流$I_M=0.0\mathrm{A}$；画出B.1,B.2所测的4个加速电压$U_a$下的$I_e—I_M$关系曲线。\\
+\noindent 4.分析B.3中$I_e—I_M$关系曲线的各段特征。\\
+\noindent 5.分析加速电压与发射电流与发射电子速率的整体关系。\\
+\noindent 6.在B.3所作的图上，利用作图法求出$I_e$随$I_M$快速变化的一段的延长线与$I_M$很低时$I_e$值的交点，交点处对应的$I_M$值即称临界励磁电流电流$I_{C}$。求出各曲线的$I_C$。\\
+\noindent 7.由为阳极提供灯丝电流的电源CH3示值，计算灯丝电阻$R_f$。\\
+\noindent 8.计算各个加速电压设定值所对应的加速电压平均值$U_a'$.。\\
+\noindent 9.直线拟合求电子的荷质比${e}/{m}$。
+\subsubsection*{C\quad 热电子发射的电子速率分布}
+\noindent 1.由B.1中测得的数据计算加速电压$U_a=4\mathrm{V}$时的发射电子速率分布情况。简化起见，自变量取为励磁电流$I_M$。说明计算因变量的方法，并计算因变量。（注意计算时应将发射电流归一化，并计算励磁电流导致的发射电流的变化以及平均变化）\\ 
+\noindent 2.由B.2中测得的数据计算加速电压$U_a=10\mathrm{V}$时的电子速率分布。\\
+\noindent 3.将C.1，C.2的计算结果，即$v_e-I_M$关系画在同一图中。\\
+\noindent 4.分析电子速率分布特征及加速电压对电子速率分布整体情况的影响。
+
+\section*{三\quad 数据处理}
+
+\subsection*{A\quad 连接电路}
+\subsubsection*{A.1}
+\noindent 只接线圈1：C点磁感应强度为 \textbf{1.04 mT}，方向显示为\textbf{N}；\\
+\noindent 只接线圈2：C点磁感应强度为 \textbf{0.98 mT}，方向显示为\textbf{N}.\\
+\noindent 可见两个线圈通相同电流时产生的磁场的方向相同.
+\subsubsection*{A.2}
+\noindent 线圈1和2顺接，四个螺孔处$B_1=2.04$  $\mathrm{mT}$，$B_2=2.02$  $\mathrm{mT}$，$B_3=2.01$  $\mathrm{mT}$，$B_4=2.00$  $\mathrm{mT}$.\\
+\noindent 塑料板中间位置$B_C=2.03$  $\mathrm{mT}$，四个螺孔处的平均值为$\bar{B}=\frac{1}{4}(B_1+B_2+B_3+B_4)=2.0175$  $\mathrm{mT}$.
+\clearpage
+\subsubsection*{A.3}
+\begin{table}[H]
+  \caption{$I_M$及$B$测量数据} \vspace{0.2em}
+  \centering
+  %\resizebox{0.8\linewidth}{!}
+  {
+  \begin{tabular}{c|cccccccc}
+    \hline
+    $I_M$ (A)& 0.0 & 0.2 & 0.4 & 0.6 & 0.8 & 1.0 & 1.2& 1.4\\
+    $B$ (mT)&  0.01& 0.80& 1.63& 2.50& 3.32& 4.15& 4.98& 5.84\\
+    \hline
+    \end{tabular}}
+\end{table}
+\noindent 由$B=kI_M$线性拟合得到的结果为：$k=4.155$   $\mathrm{mT/A}$.
+\subsection*{B\quad 加速电压$U_a$，磁感应强度$B$与真空二极管发射电流$I_e$之间的关系}
+\subsubsection*{B.1,2,3}
+\noindent 灯丝电流$I_f=0.6$  $\mathrm{A}$\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.44]{2.png}
+  \end{figure}
+相应的$I_e-I_M$关系曲线绘出如下：
+\clearpage
+\begin{figure}[htbp]
+ \centering
+  \subfloat[$U_a=4$  $\mathrm{V}$]
+  {\includegraphics[width=0.48\textwidth]{3.png}}
+  \quad
+  \subfloat[$U_a=6$  $\mathrm{V}$]
+  {\includegraphics[width=0.48\textwidth]{4.png}}
+  \quad
+  \subfloat[$U_a=8$  $\mathrm{V}$]
+  {\includegraphics[width=0.48\textwidth]{5.png}}
+  \quad
+  \subfloat[$U_a=10$  $\mathrm{V}$]
+  {\includegraphics[width=0.48\textwidth]{6.png}}
+  \caption*{图$2.\quad$各加速电压$U_a$下的$I_e—I_M$关系曲线}
+ \end{figure}
+\subsubsection*{B.4,5}
+\noindent 由B.3作图可知，对于各加速电压，$I_e-I_M$关系曲线可分为3段，各段的特征为：\\
+\noindent 第一段，磁场较小，大部分电子能到达阳极，\textbf{$I_e$随$I_M$的增大无显著变化}；\\
+\noindent 第二段，磁场在临界值附近，\textbf{$I_e$随$I_M$的增大迅速下降，且变化近似为线性}；\\
+\noindent 第三段，磁场大于临界值，\textbf{$I_e$随$I_M$的增大缓慢减小，逐渐趋近于0}.\\
+
+\noindent 由B.3作图可知，增大加速电压使发射电流$I_e$整体\textbf{增大}. 此外，增大加速电压使发射电子的速度整体\textbf{增大}.\\
+
+\subsubsection*{B.7}
+\noindent 灯丝电流$I_f=0.6$  $\mathrm{A}$，灯丝电压$U_f=3.480$  $\mathrm{V}$；故灯丝电阻$R_f=\displaystyle\frac{U_f}{I_f}=\frac{3.480}{0.6}$  $\Omega$=5.8  $\Omega$.\\
+
+\subsubsection*{B.6,8,9}
+\noindent 如图3所示，利用作图法求取各曲线的临界励磁电流$I_C$：
+\clearpage
+\begin{figure}[H]
+  \centering
+   \subfloat[$U_a=4$  $\mathrm{V}$]
+   {\includegraphics[width=0.48\textwidth]{7.png}}
+   \quad
+   \subfloat[$U_a=6$  $\mathrm{V}$]
+   {\includegraphics[width=0.48\textwidth]{8.png}}
+   \quad
+   \subfloat[$U_a=8$  $\mathrm{V}$]
+   {\includegraphics[width=0.48\textwidth]{9.png}}
+   \quad
+   \subfloat[$U_a=10$  $\mathrm{V}$]
+   {\includegraphics[width=0.48\textwidth]{10.png}}
+   \caption*{图$3.\quad$各曲线的临界励磁电流$I_C$}
+  \end{figure}
+\noindent 由平均加速电压$U_a'=U_a-U_f/2$，以及临界磁场$B_C$满足的关系式$\displaystyle B_C^2=\frac{8m_eU_a'}{eb^2}$，计算并作表如下：
+\setcounter{table}{2} % 将表格编号重置为2
+\begin{table}[H]
+  \centering
+  \caption{$B_c^2-U_a'$拟合数据}\vspace{0.3em} 
+  \begin{tabular}{ccccc}
+  \toprule
+  加速电压$U_a$（V）& 平均加速电压$U_a'$（V）& 临界励磁电流$I_C$（A）& 临界磁场$B_C$（T）& $B_C^2$（$\mathrm{T^2}$） \\
+  \midrule
+  4& 2.260& 0.552& $2.294\times 10^{-3}$& $5.260\times 10^{-6}$\\
+  6& 4.260& 0.783& $3.2534\times 10^{-3}$& $1.058\times 10^{-5}$\\
+  8& 6.260& 0.968& $4.022\times 10^{-3}$& $1.618\times 10^{-5}$\\
+  10& 8.260& 1.119& $4.649\times 10^{-3}$& $2.162\times 10^{-5}$\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+\noindent 由$B_C^2=KU_a'$线性拟合得到的结果为：斜率$K=2.478\times 10^{-6}$  $\mathrm{T^2/V}$.\\
+
+\noindent 由此即可求得电子的荷质比$\displaystyle\frac{e}{m}=\frac{8}{Kb^2}=\frac{8}{2.478\times 10^{-6}\times (4.55\times 10^{-3})^2}$  $\mathrm{C/kg}$= $1.561\times 10^{11}$  $\mathrm{C/kg}$.\\
+
+\noindent 而电子荷质比的真实值为$1.758\times 10^{11}$  $\mathrm{C/kg}$，实验测得值与之相对偏差约为$ -11\%$，结果较为准确.
+\subsection*{C\quad 热电子发射的电子速率分布}
+\subsubsection*{C.1,2}
+\noindent 在给定的磁感应强度$B$下，考虑磁场带来的轨迹偏转，能够从阴极到达阳极的电子速率存在下限：
+\begin{equation}
+  v_{C}=\frac{be}{2m}B=\frac{be}{2m}kI_M\tag{3}
+\end{equation}
+\clearpage
+\noindent 因此，阳极探测到的发射电流可以表示为：
+\begin{equation}
+  I_e=\displaystyle \int_{v_C}^{\infty}\rho(v)\mathrm{d}v\tag{4}
+\end{equation}
+\noindent 其中$\rho(v)$为电子速率分布函数:
+\begin{equation}
+  \rho(v)=-\frac{\mathrm{d}I_e}{\mathrm{d}v_C}=-\frac{\mathrm{d}I_e}{\mathrm{d}I_M}\frac{\mathrm{d}I_M}{\mathrm{d}v_C}=-\frac{2m}{bek}\frac{\mathrm{d}I_e}{\mathrm{d}I_M}\tag{5}
+\end{equation}
+同时考虑归一化因子，则可取因变量为：
+\begin{equation}
+  f(I_M)=-\frac{1}{I_{e,\max}}\frac{\mathrm{d}I_e}{\mathrm{d}I_M}\propto \rho(v) \tag{6}
+\end{equation}
+实际处理时，$\displaystyle\frac{\mathrm{d}I_e}{\mathrm{d}I_M}$可通过B.1中测得的相邻数据点作差取为$\displaystyle\frac{\Delta I_e}{\Delta I_M}$
+计算.\\
+\begin{table}[H]
+  \centering
+  \caption{$U_a=4$ V时因变量分布数据}\vspace{0.3em} 
+  \begin{tabular}{cccc|cccc}
+  \toprule
+   $\Delta I_M$(A)& $-\Delta I_e$($\mathrm{\mu A}$)& $-\frac{\Delta I_e}{\Delta I_M}$($\times 10^{-6}$)& $f(I_M)$($\mathrm{A^{-1}}$)& 
+   $\Delta I_M$(A)& $-\Delta I_e$($\mathrm{\mu A}$)& $-\frac{\Delta I_e}{\Delta I_M}$($\times 10^{-6}$)& $f(I_M)$($\mathrm{A^{-1}}$)\\
+  \midrule
+  0.1& 0.010& 0.10& $3.52\times 10^{-3}$&         0.02& 2.682& 134.1& 4.72\\
+  0.1& 0.023& 0.23& $8.09\times 10^{-3}$&         0.02& 2.180& 109.00& 3.84\\
+  0.1& 0.011& 0.11& $3.87\times 10^{-3}$&         0.02& 1.474& 73.7& 2.59\\
+  0.1& -0.177& -1.77& -0.06&                      0.02& 0.975& 48.75& 1.72\\
+  0.1& -0.500& -5.00& -0.18&                      0.05& 1.520& 30.40& 1.07\\
+  0.05& 1.657& 33.14& 1.17&                       0.05& 0.971& 19.42& 0.68\\
+  0.02& 1.771& 88.55& 3.12&                       0.05& 0.338& 6.76& 0.24\\
+  0.02& 2.461& 123.05& 4.33&                      0.1& 0.214& 2.14& 0.08\\
+  0.02& 2.932& 146.60& 5.16&                      0.1& 0.107& 1.07& 0.04\\
+  0.02& 3.001& 150.05& 5.28&                      0.1& 0.081& 0.81& 0.03\\
+  0.02& 3.047& 152.35& 5.36&                      0.1& 0.064& 0.64& 0.02\\
+  0.02& 2.944& 147.20& 5.18&                      0.1& 0.027& 0.27& $9.50\times 10^{-3}$\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+\noindent 注：$U_a=4$V时$I_{e,\max}=28.414$  $\mathrm{\mu A}$.
+  \begin{table}[H]
+    \centering
+    \caption{$U_a=10$ V时因变量分布数据}\vspace{0.3em} 
+    \begin{tabular}{cccc|cccc}
+    \toprule
+     $\Delta I_M$(A)& $-\Delta I_e$($\mathrm{\mu A}$)& $-\frac{\Delta I_e}{\Delta I_M}$($\times 10^{-6}$)& $f(I_M)$($\mathrm{A^{-1}}$)& 
+     $\Delta I_M$(A)& $-\Delta I_e$($\mathrm{\mu A}$)& $-\frac{\Delta I_e}{\Delta I_M}$($\times 10^{-6}$)& $f(I_M)$($\mathrm{A^{-1}}$)\\
+    \midrule
+    0.2& -0.001& -0.005& $-1.65\times 10^{-4}$&        0.01& 2.985& 298.5   & 9.83\\
+    0.2& -0.009& -0.045& $-1.48\times 10^{-3}$&        0.01& 2.999& 299.9   & 9.88\\
+    0.2& -0.080& -0.400& $-1.32\times 10^{-2}$&        0.01& 2.409& 240.9   & 7.94\\
+    0.2& -0.133& -0.665& $-2.19\times 10^{-2}$&        0.01& 1.877& 187.7   & 6.18\\
+    0.2& -0.886& -4.43 & -0.15&                       0.01& 1.410& 141.0   & 4.64\\
+    0.05& 0.976& 19.52 & 0.64&                        0.01& 1.118& 111.8   & 3.68\\
+    0.05& 2.390& 47.8  & 1.57&                        0.02& 1.718& 85.9    & 2.83\\
+    0.02& 1.501& 75.05&  2.47&                        0.04& 2.241& 56.03   & 1.85\\
+    0.01& 1.197& 119.7&  3.94&                        0.04& 1.554& 38.85   & 1.28\\
+    0.01& 1.992& 199.2&  6.56&                     & & & \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    \noindent 注：$U_a=10$V时$I_{e,\max}=30.356$  $\mathrm{\mu A}$.
+\clearpage
+\subsubsection*{C.3}
+\noindent 由C.1及C.2的计算结果，可画出因变量与励磁电流$I_M$的关系曲线如下：
+\begin{figure}[H]
+  \centering
+   \includegraphics[scale=0.44]{12.png}
+   \caption*{图$2.$不同加速电压下因变量$f$与励磁电流$I_M$的关系曲线}
+ \end{figure}
+\subsubsection*{C.4}
+\noindent 由图4可知，给定加速电压下，电子速率分布函数的特征是：\textbf{励磁电流较小时值很小（接近0）且无显著变化；在临界励磁电流附近迅速增大达到峰值，随后迅速减小；大于临界励磁电流时分布函数继续减小，逐渐趋近于0. 总体分布与$Gauss$波包类似.}\\
+
+\noindent 此外，增大加速电压对电子分布的影响是\textbf{使之整体向更大的励磁电流方向移动，分布得更加集中，同时极大值也随之增大}.
+  
+\section*{四\quad 讨论}
+在本次实验中，我们通过调节加速电压$U_a$与励磁电流$I_M$（或磁感应强度$B$）两个重要的实验参数，研究了它们对真空二极管发射电流$I_e$的影响，验证了相关理论公式；并在此基础上，测定了电子的荷质比以及热发射电子的速率分布.\\ 
+\noindent \textbf{实验中测得的荷质比与真实值有一定误差，其可能的来源有：}\\
+\noindent 1.由于特斯拉计的手持方向与探头原件所处的空间位置都无法精准确定，因此在$B$与$I_M$关系进行线性拟合时会导致一定偶然性误差。\\
+\noindent 2.实验中设定较大励磁电流时，高载荷长时间工作的亥姆霍兹线圈将会发热，影响磁场的大小（此时$B-I_M$关系可能不再遵循我们测得的直线关系）；同时，调节励磁电流也会影响磁场的稳定性。因此，实际测定时$I_e$与$I_M$的对应关系可能不尽准确.\\
+\noindent 3.由于采用了作图估算法，对于临界励磁电流$I_C$的测定存在较大主观误差.\\
+\noindent 4.实验用电表的示数精度有限，且具有一定滞后性。事实上，在临界励磁电流附近反复调节时，相同的$I_M$值可能给出不同的$I_e$值。除了电表自身因素外，这也和真空二极管本身的工作状态有关：实验过程中，管内电子的热运动情况，可能对发射电流产生难以消除且无法复现的影响.\\
+\clearpage
+\textbf{针对以上讨论，对实验内容及设计有如下建议：}
+\begin{itemize}
+  \item 可以测定在不同工作电流（温度）下磁场与励磁电流的关系，作出标定曲线，并利用之对实验数据进行修正，减小实验误差.\\
+  \item 可以考虑使用更为精确的电学仪器，以减小实验误差.\\
+  \item 可以进一步设计实验探究电子速率分布峰值与随加速电压的变化规律，或探究分布函数的形式与理论预期的关系.
+\end{itemize}
+
+
+\quad\\
+\quad\\
+\quad\\
+\quad\\
+\quad\\
+
+\section*{五\quad 原始数据}
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[scale=0.40]{000.png}
+   
+ \end{figure}
+
+\end{document}
+

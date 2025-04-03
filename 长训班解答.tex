@@ -1,0 +1,875 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{长训班力学试题解答}
+\class{2025.1.15}
+\name{鸟飞的学生们}
+
+
+\begin{document}
+\maketitle
+
+\section*{第1题（40分）}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{5.png}
+\caption*{题解示意图，来自《奥赛物理题选》，注意数据不太一样}
+\end{figure}
+显然，$T$始终在$S_1,S_2$的垂直平分线$y$轴上运动. 记$t$时刻$P$的速度为$v$，坐标为$(x(t),y(t))$. 由几何关系有：
+则由速度投影：
+\begin{equation}
+
+    \mathrm{d}l_1(t)=v(t)\mathrm{d}t \cos\theta_1(t),\quad \mathrm{d}l_2(t)=v(t)\mathrm{d}t \cos\theta_2(t)
+    \tag{1.1}
+\end{equation} 
+作比并运用几何关系，得到：
+\begin{equation}
+    \frac{\mathrm{d}l_1(t)}{\mathrm{d}l_2(t)}=\frac{\cos\theta_1(t)}{\cos\theta_2(t)}=\frac{l_1(t)}{l_2(t)} 
+    \tag{1.2}
+\end{equation}
+于是
+\begin{equation}
+  
+    \frac{\mathrm{d}l_1(t)}{\mathrm{d}l_2(t)}=\frac{l_1(t)-\mathrm{d}l_1(t)}{l_2(t)-\mathrm{d}l_2(t)} =\frac{l_1(t)}{l_2(t)} 
+    \tag{1.3}
+\end{equation}
+可见该比值恒定，而初值条件给出：
+\begin{equation}
+    \frac{l_1(t)}{l_2(t)}=\frac{l_1(0)}{l_2(0)}=\frac{\sqrt{50}}{\sqrt{48}} \tag{1.4}
+\end{equation}
+同时有几何关系：
+\begin{equation}
+    l_1(t)=\sqrt{(x+40)^2+y^2},\quad l_2(t)=\sqrt{(x-40)^2+y^2} \tag{1.5}
+\end{equation}
+即得：
+\begin{equation}
+    \frac{\sqrt{(x+40)^2+y^2}}{\sqrt{(x-40)^2+y^2}}=\frac{\sqrt{50}}{\sqrt{48}} \tag{1.6}
+\end{equation}
+化简得到：
+\begin{equation}
+    \Big(x+\frac{370}{3}\Big)^2+y^2=\Big(\frac{350}{3}\Big)^2 \tag{1.7}
+\end{equation}
+可见$P$的轨迹是圆心位于$\displaystyle \Big(-\frac{370}{3},0 \Big)$，半径为$\displaystyle\frac{350}{3}$的圆（单位已省略）.
+
+\noindent $P$的终点$(x_0,y_0)$对应于$T$处于(0，0)的位置，此时$\overline{PT}=40$，故附加条件为：
+\begin{equation}
+    x_0^2+y_0^2=40^2 \tag{1.8}
+\end{equation}
+联立(1.7)(1.8)可解得：
+\begin{equation}
+    x_0=-\frac{480}{37},\quad y_0=\frac{1400}{37} \tag{1.9}
+\end{equation}
+由此可确定$P$全过程转过的圆心角（可以利用向量点积）：
+\begin{equation}
+    \alpha=17.9453° \tag{1.10}
+\end{equation}
+故所用的时间为：
+\begin{equation}
+    t=\frac{r\alpha}{v}=\frac{350/3\times 0.3132}{9}=4.06\mathrm{s} \tag{1.11}
+\end{equation}
+\\
+\\
+
+\section*{第2题（40分）}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{6.png}
+\caption*{坐标系示意}
+\end{figure}
+\noindent 建立如图所示的坐标系：
+\begin{equation}
+\vec{\varOmega}=\frac{\sqrt{3}}{2}\varOmega\hat{z}-\frac{1}{2}\varOmega\hat{x}\tag{2.1}
+\end{equation}
+近似下的动力学方程为：
+	\begin{equation}
+  \begin{cases}
+		\displaystyle \ddot{z}=-\frac{GM}{(R+z)^2}\\
+		\ddot{x}=\sqrt{3}\varOmega\dot{y}\\
+		\ddot{y}=-\sqrt{3}\varOmega\dot{x}-\frac{1}{2}\varOmega\dot{z}
+	\end{cases}
+  \tag{2.2}
+  \end{equation}
+进一步近似，只保留一阶小量：
+	\begin{equation}
+  \begin{cases}
+		\ddot{x}=0\\
+		\ddot{y}=-\frac{1}{2}\varOmega\dot{z}
+	\end{cases} 
+  \tag{2.3}
+  \end{equation}
+	先来讨论$z$方向：
+	\begin{equation}
+  \frac{1}{2}\dot{z}^2=GM(\frac{1}{R+z}-\frac{1}{2R}) \tag{2.4}
+  \end{equation}
+	\begin{equation}
+  \dot{z}=-\sqrt{\frac{GM(R-z)}{R(R+z)}} \tag{2.5}
+  \end{equation}
+	\begin{equation}
+  t(z)=\int_z^R\sqrt{\frac{R(R-z)}{GM(R+z)}}\mathrm{d}z=\sqrt{\frac{R^3}{GM}}\left(\frac{\pi}{2}-\arcsin{\frac{z}{R}}+\sqrt{1-\left(\frac{z}{R}\right)^2}\right) \tag{2.6}
+  \end{equation}
+	故落到地面的时间为：
+  \begin{equation}
+  t_0=\sqrt{\frac{R^3}{GM}}\left(\frac{\pi}{2}+1\right) \tag{2.7}
+  \end{equation}
+	而在$y$方向上有：
+	\begin{equation}
+  \dot{y}=\frac{1}{2}\varOmega(2R-z) \tag{2.8}
+  \end{equation}
+	\begin{equation}
+  y=\varOmega Rt_0-\frac{1}{2}\varOmega\int_0^{t_0}z(t)\mathrm{d}t \tag{2.9}
+  \end{equation}
+	分部积分:
+	\begin{equation}
+  \int_0^{t_0}z(t)\mathrm{d}t=tz(t)\Big|_0^{t_0}+\int_0^{R}t(z)\mathrm{d}z=\int_0^{R}t(z)\mathrm{d}z
+  \tag{2.10}
+  \end{equation}
+  由此得到最终$y$方向移动的距离为：
+	\begin{align*}
+		y_f=\varOmega Rt_0-\frac{1}{2}\varOmega\int_0^{R}t(z)\mathrm{d}z&=\varOmega R\sqrt{\frac{R^3}{GM}}\Big[\left(\frac{\pi}{2}+1\right)-\frac{1}{2}\int_0^1\left(\frac{\pi}{2}-\arcsin{x}+\sqrt{1-x^2}\right)\mathrm{d}x\Big]\notag\\
+		&=\left(\frac{1}{2}+\frac{3}{8}\pi\right)\varOmega R\sqrt{\frac{R}{g}}\approx627 \mathrm{km}\tag{2.11}
+	\end{align*}
+	故最终将落在原地点偏东627km处.
+
+  来考察近似的误差影响，由量纲分析，$x$方向上的位移相对于$y$方向上的位移的比值量级大致为：
+  \[\frac{x_f}{y_f}=\varOmega\sqrt{\frac{R}{g}}\approx0.05\]
+  因此忽略是合理的，最终的结果可取为偏东$6.3\times 10^5\mathrm{m}$.
+
+\clearpage
+\section*{第3题（40分）}
+
+先来分析本题的运动过程. 记小盘转动角速度为$\omega_1$，角加速度为$\beta_1$；相应地，环的转动角速度为$\omega_2$，角加速度为$\beta_2$，质心速度为$v$，质心\textbf{朝左}的平动加速度为$a$，小盘的半径为$R$，质量为$m$. 
+
+一开始时，圆环因受地面朝左的滑动摩擦力，将会作顺时针转动，同时通过对小盘的摩擦力带动小盘也作顺时针转动。此时若$\mu$足够大，两者可一起转动而无相对滑动. 而当$\mu$较小时，小盘的转动会落后于环的转动，出现相对滑动。以下先讨论会出现相对滑动的情况.
+
+\noindent \textbf{第一阶段:}
+
+当$\beta_1<\beta_2,\omega_1<\omega_2$时，环和盘之间存在相对滑动，$a$对$v$起减速作用.当达到纯滚条件在$\omega_2\cdot 2R=v$时，地面对环的向左滑动摩擦力消除.
+
+\noindent \textbf{第二阶段:}
+
+因小盘转速小于环的转速$\omega_2$，两者间滑动摩擦继续存在，使$\omega_1$继续加速，$\omega_2$继续减速，环与地接触点又有相对滑动趋势，环又会受到地面摩擦力. 
+
+此时，环与地摩擦力不能朝右，否则质心会加速，环角速度$\omega_2$会减小，使接触点朝右运动，这显然与摩擦力朝右矛盾. 因此这一摩擦力只能朝左，但又不能是滑动摩擦力;否则动力学方程与第一阶段完全一致，将使$\omega_2$继续加速，质心继续减速，环的触地点左行，这与摩擦力朝左矛盾.
+综上所述，这一阶段\textbf{环与地摩擦力只能是朝左的静摩擦力}，触地点仍为瞬心.这样，$\omega_2$减小，质心继续减速，且纯滚条件$\omega_2\cdot 2R=v, \beta_2\cdot 2R=a$始终成立. 当$\omega_2$减小到与$\omega_1$相等，小盘与环间无相对滑动时，系统即达到最终的稳定状态，所有摩擦力消失.
+
+现在来分析小盘与环间的作用力. \textbf{注意盘与环的接触点不一定在盘的正下方，因而（法向）支持力不一定竖直向上.}但全过程中无论小盘与环间的力作用点在何位置，所受法向力$\bm{N_1}$与摩擦力$\bm{f_1}$间均存在关系:
+\begin{equation}
+    f_1=\mu N_1,\quad \bm{f_1}\bot \bm{N_1}\notag
+\end{equation}
+其合力$F_1=\sqrt{N_1^2+f_1^2}=\sqrt{1+\mu^2}N_1$，且考虑到Newton第二定律显然有$F_1=m\sqrt{g^2+a^2}$.这样即可解得：
+\begin{equation}
+    N_1=\frac{m\sqrt{g^2+a^2}}{\sqrt{1+\mu^2}},\quad f_1=\frac{\mu m\sqrt{g^2+a^2}}{\sqrt{1+\mu^2}}\notag
+\end{equation}
+注意，我们忽略全过程分段讨论时不同过程之间极短暂过渡过程的影响（事实上也无伤大雅）.以下即来做具体计算.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{1.png}
+\end{figure}
+
+\noindent 上图给出了第一阶段的受力分析. 对小盘有：
+\begin{equation}
+    F_{1\bot}=mg \tag{3.1}
+\end{equation}
+\begin{equation}
+    F_{1\parallel}=ma \tag{3.2}
+\end{equation}
+\begin{equation}
+    f_1=\mu m\sqrt{g^2+a^2}\Big/\sqrt{1+\mu^2} \tag{3.3}
+\end{equation}
+\begin{equation}
+    f_1R=I_1\beta_1 ,\quad I_1=\frac{1}{2}mR^2 \tag{3.4}
+\end{equation}
+对环有：
+\begin{equation}
+    f_2-F_{1\parallel}=3ma \tag{3.5}
+\end{equation}
+\begin{equation}
+    N_2=3mg+F_{1\bot} \tag{3.6}
+\end{equation}
+\begin{equation}
+    f_2=\mu_0 N_2 \tag{3.7}
+\end{equation}
+\begin{equation}
+    f_2\cdot 2R-f_1R=I_2\beta_2 ,\quad I_2=\frac{1}{2}3m[R^2+(2R)^2]=\frac{15}{2}mR^2 \tag{3.8}
+\end{equation}
+联立以上数式，可以解得：
+\begin{equation}
+    a=\mu_0 g \tag{3.9}
+\end{equation}
+\begin{equation}
+    f_1=\sqrt{\frac{1+\mu_0^2}{1+\mu^2}}\mu mg \tag{3.10}
+\end{equation}
+\begin{equation}
+\beta_1=2\mu\sqrt{\frac{1+\mu_0^2}{1+\mu^2}}g/R \tag{3.11}
+\end{equation}
+\begin{equation}
+\beta_2=\frac{2}{15}\Big(8\mu_0-\mu \sqrt{\frac{1+\mu_0^2}{1+\mu^2}}\Big)g/R \tag{3.12}
+\end{equation}
+第一阶段的存在要求$\beta_1<\beta_2$，代入参数值$\mu_0=0.1$的即可解得$\mu$此时的范围为：
+\begin{equation}
+    0<\mu<0.0498 \tag{3.13}
+\end{equation}
+题给数据中$\mu=0.03$，故第一阶段存在，以上讨论成立. 具体代入数值，解得：
+\begin{equation}
+    \beta_1=0.06027\frac{g}{R},\quad \beta_2=0.1026\frac{g}{R} \tag{3.14}
+\end{equation}
+因此在第一阶段中，质心速度关于时间的变化为：
+\begin{equation}
+    v(t)=v_0-\mu_0 g t \tag{3.15}
+\end{equation}
+第一阶段结束的时刻$\tau$由纯滚条件给出：
+\begin{equation}
+    \beta_2 \tau\cdot 2R=v_0-\mu_0 g\tau \tag{3.16}
+\end{equation}
+解得：
+\begin{equation}
+    \tau=3.2765\frac{v_0}{g},\quad v(\tau)=0.6723v_0,\quad \omega_{1\tau}=0.1975\frac{v_0}{R},\quad \omega_{2\tau}=0.3362\frac{v_0}{R} \tag{3.17}
+\end{equation}
+然后进入第二阶段. 此时对于盘的分析都仍然成立，但是对于环而言，与地摩擦力和支持力的关系不再成立（此时是纯滚），应该代之以纯滚条件:
+\begin{equation}
+    a=\beta_2\cdot 2R \tag{3.18}
+\end{equation}
+此时环的角加速度$\beta_2$是逆时针正向的了，方向已经改变.故对环的转动方程相应应该改为：
+\begin{equation}
+    f_2\cdot 2R-f_1R=I_2\cdot (-\beta_2) \tag{3.19}
+\end{equation}
+为了表达的方便，引入$\mu_0'$使其满足：
+\begin{equation}
+f_2=\mu_0'N_2 \tag{3.20}
+\end{equation}
+这样，上述新得到的两个式子在数学形式上与之前的相同. 由此重新求解方程组，可得：
+\begin{equation}
+    a=\mu_0' g \tag{3.21}
+\end{equation}
+\begin{equation}
+  \beta_1=2\mu\sqrt{\frac{1+\mu_0'^2}{1+\mu^2}}g/R \tag{3.22}
+  \end{equation}
+  \begin{equation}
+  \beta_2=-\frac{2}{15}\Big(8\mu_0'-\mu \sqrt{\frac{1+\mu_0'^2}{1+\mu^2}}\Big)g/R \tag{3.23}
+  \end{equation}
+联立$a,\beta_2,\mu_0'$几式的关系，计算可得：
+\begin{equation}
+    \mu_0'=2.55\times 10^{-3},\quad a=2.55\times 10^{-3}g \tag{3.24}
+\end{equation}
+\begin{equation}
+    \beta_1'=0.05997\frac{g}{R},\quad \beta_2'=0.00128\frac{g}{R}\quad \text{（注意正方向不同）} \tag{3.25}
+\end{equation}
+第二阶段从开始到结束的时间间隔$T$由终末角速度$\omega_1=\omega_2$给出：
+\begin{equation}
+    \omega_{1\tau}+\beta_1' T=\omega_{2\tau}-\beta_2' T \tag{3.26}
+\end{equation}
+解得：
+\begin{equation}
+    T=2.2185\frac{v_0}{g},\quad v(\tau+T)=v(\tau)-aT=0.6667v_0 \tag{3.27}
+\end{equation}
+故最终的图像可作出为：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{2.png}
+\caption*{质心速度关于时间的变化（速度以$v_0$为单位值，时间以$v_0/g$为单位值）其中蓝色为第一段，橙色为第二段}
+\end{figure}
+
+注意到质心的末态速度为$\frac{2}{3}v_0$，这是一个与摩擦系数值无关的结果. 事实上，对在地面参考系的地面上任意一点，系统的角动量守恒，故由初态和末态得：
+\begin{equation}
+4m \cdot v_0\cdot 2R=4mv_{\text{末}}\cdot 2R+(I_1+I_2)\omega_{2\text{末}},\quad \omega_{2\text{末}}=\frac{v_{\text{末}}}{2R} \tag{3.28}
+\end{equation}
+即可解得$v_{\text{末}}=\frac{2}{3}v_0$.
+
+\clearpage
+\section*{第4题（50分）}
+\begin{figure}[htbp]
+  \centering
+  \subfloat[第一问]
+  {\includegraphics[width=0.4\textwidth]{3.png}}
+  \quad    
+  \subfloat[第二问]
+  {\includegraphics[width=0.35\textwidth]{4.png}}
+  \caption*{任泓锦同学手绘的两小问图解}
+\end{figure}
+
+\noindent（1）
+\noindent 待定的冲量分布如图所示. 首先来分析A点的运动，由动量定理得：
+\begin{equation}
+   m'v _{Ax}=I_A-I_1,\quad v_{Ay}=0,\qquad m'\equiv \frac{1}{6}m \tag{4.1}
+\end{equation}
+A,C两点沿AC杆速度相同给出：
+\begin{equation}
+    \frac{(I_A-I_1)/2}{m'}=\frac{I_1-I_2/2}{m'} \quad \Rightarrow \quad  I_A=3I_1-I_2 \tag{4.2}
+\end{equation}
+同样地，对CD有：
+\begin{equation}
+    \frac{1}{2}I_1-I_2=I_2-\frac{1}{2}I_3 \quad \Rightarrow \quad  I_1-4I_2+I_3=0  \tag{4.3}
+\end{equation}
+对BD有：
+\begin{equation}
+    \frac{1}{2}I_3=\frac{1}{2}I_2-I_3 \quad \Rightarrow \quad  3I_3=I_2 \tag{4.4}
+\end{equation}
+对B点有：
+\begin{equation}
+    I_3=m'v_B \tag{4.5}
+\end{equation}
+联立以上数式，可以解得：
+\begin{equation}
+   I_1=11I_3,\quad I_3=\frac{1}{30}mv,\quad v_B=\frac{1}{5}v  \tag{4.6}
+\end{equation}
+
+\noindent（2）类似地，我们先设出沿绳方向的冲量的角分布$I(\theta)$. 注意是软绳，故绳上各点的冲量只能沿绳方向。绳上各点的径向速度与切向速度用$v_r,v_\tau$描述。
+
+由动量定理：
+\begin{equation}
+v_r(\theta)=-\frac{2\pi}{m}I(\theta),v_\tau(\theta)=\frac{2\pi}{m}\frac{\mathrm{d}I(\theta)}{\mathrm{d}\theta} \tag{4.7}
+\end{equation}
+此外，考虑绳不可伸长的约束条件，取绳的自然坐标系
+\begin{equation}
+\hat{\tau}\cdot\frac{\partial\bm{v}}{\partial{s}}=0 \tag{4.8}
+\end{equation}
+其中$\hat{\tau}$为切向单位矢量，$s$为绳的弧长参数. 展开至径向与切向，有：
+\begin{equation}
+  \frac{\partial\bm{v}}{\partial{s}}=\frac{\partial v_r}{\partial s}\hat{r}+\frac{\partial v_\tau}{\partial s}\hat{\tau}+v_r\frac{\partial \hat{r}}{\partial s}+v_{\tau}\frac{\partial \hat{\tau}}{\partial s} \tag{4.9}
+\end{equation}
+注意到：
+\begin{equation}
+  \frac{\partial \hat{r}}{\partial s}=\frac{\hat{\tau}}{\rho},\quad \frac{\partial \hat{\tau}}{\partial s}=-\frac{\hat{r}}{\rho} \tag{4.10}
+\end{equation}
+其中$\rho$为绳的曲率半径，因此绳的不可伸长条件即为：
+\begin{equation}
+  \frac{\partial v_{\tau}}{\partial s}+\frac{v_r}{\rho}=0 \tag{4.11}
+\end{equation}
+回到这个问题，我们知道$\rho=R,\mathrm{d}s=R\mathrm{d}\theta$，故上式化为：
+\begin{equation}
+  \frac{\mathrm{d} v_\tau}{\mathrm{d} \theta}+{v_r}=0 \tag{4.12}
+\end{equation}
+代入$v_r,v_\tau$的表达式，可得：
+\begin{equation}
+  \frac{\mathrm{d}^2 I(\theta)}{\mathrm{d} \theta^2}-{I(\theta)}=0 \tag{4.13}
+\end{equation}
+这个方程的通解为：
+\begin{equation}
+  I(\theta)=C_1\mathrm{e}^{\theta}+C_2\mathrm{e}^{-\theta},\quad \theta\in[0,\pi] \tag{4.14}
+\end{equation}
+圆环上下的对称性要求$I(\theta)=I(2\pi-\theta)$，然后来考虑如何通过边界条件来定出$C_1,C_2$。先来看$B$点，此点不受外冲量，故$B$点处$\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}$连续:
+\begin{equation}
+  \frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^-}=-\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^+} \tag{4.15}
+\end{equation}
+由于
+\begin{equation}
+  \frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^+}=\frac{\mathrm{d} I(2\pi-\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^+}=-\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^-} \tag{4.16}
+\end{equation}
+联立以上两式，故$\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^-}=\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=\pi^+}=0$，即
+\begin{equation}
+  C_1\mathrm{e}^{\pi}-C_2\mathrm{e}^{-\pi}=0 \tag{4.17}
+\end{equation}
+再来看$A$点，此点受到的冲量为$I_A$，因此方程(4.13)实际上是不完整的。由于
+\begin{equation}
+  v_r(\theta)=\frac{2\pi}{m}(I_A\delta(\theta)-I(\theta)),\quad v_\tau(\theta)=\frac{2\pi}{m}\frac{\mathrm{d}I(\theta)}{\mathrm{d}\theta} \tag{4.18}
+\end{equation}
+其中$\delta(\theta)$为Dirac函数. 应用速度条件(4.12),完整的方程应写为：
+\begin{equation}
+  \frac{\mathrm{d}^2 I(\theta)}{\mathrm{d} \theta^2}-{I(\theta)}+I_A\delta(\theta)=0 \tag{4.19}
+\end{equation}
+将其对经过$\theta=0$处积分，得：
+\begin{equation}
+  \frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=0^+}-\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=0^-}=-I_A \tag{4.20}
+\end{equation}
+由对称性仍有：
+\begin{equation}
+\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=0^+}=-\frac{\mathrm{d} I(\theta)}{\mathrm{d} \theta}\Big|_{\theta=0^-} \tag{4.21}
+\end{equation}
+联立以上两式，可得：
+\begin{equation}
+  \frac{\mathrm{d} I(\theta)}{\mathrm{d}\theta}\Big|_{\theta=0}=C_1-C_2=-\frac{I_A}{2} \tag{4.22}
+\end{equation}
+联立(4.17)式与(4.22)式，可得:
+\begin{equation}
+  C_1=\frac{I_A}{2(\mathrm{e}^{2\pi}-1)},\quad C_2=-\frac{I_A\mathrm{e}^{2\pi}}{2(\mathrm{e}^{2\pi}-1)} \tag{4.23}
+\end{equation}
+故$I(\theta)$的具体形式为：
+\begin{equation}
+  I(\theta)=\frac{I_A}{2(\mathrm{e}^{2\pi}-1)}\Big(\mathrm{e}^{\theta}+\mathrm{e}^{2\pi-\theta}\Big) \tag{4.24}
+\end{equation}
+最后，$B$点的速度为：
+\begin{equation}
+  v_B=\frac{2\pi}{m}I(\pi)=\frac{\pi}{\sinh{\pi}}v \tag{4.25}
+\end{equation}
+\clearpage
+\section*{第5题（50分）}
+\noindent 本题首先需要默认如下假设：\textbf{小球是“超球”，与筒壁碰撞时接触点无相对运动，但是碰撞前后可以有相对运动.} 具体描述可参考下图.\par
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{chaoqiu}
+        \caption*{第38届复赛第三题}
+        \label{chaoqiu}
+    \end{figure}
+    首先，使用对接触点（质心+相对质心）的角动量守恒方程和能量守恒方程（科尼希定理）计算一次普遍的碰撞的结果：\par
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            &mv_{1\parallel}r+\frac{2}{5}mr^2 \omega_1=mv_{0\parallel}r+\frac{2}{5}mr^2 \omega_0\\
+            &\frac{1}{2}mv_{1\parallel}^2+\frac{1}{2} \Big(\frac{2}{5}\Big)mr^2 \omega_1^2=\frac{1}{2}mv_{0\parallel}^2+\frac{1}{2} \Big(\frac{2}{5}\Big)mr^2 \omega_0^2
+        \end{aligned}
+        \right.
+        \Rightarrow 
+        \left\{
+        \begin{aligned}
+            &v_{1\perp}=v_{0\perp}\\
+            &v_{1\parallel}=\frac{3}{7}v_{0\parallel}+\frac{4}{7}\omega_0r\\
+            &\omega_{1}r=\frac{10}{7}v_{0\parallel}+\frac{-3}{7}\omega_0r
+        \end{aligned}
+        \right. \tag{5.1}
+    \end{equation}
+    0表示初态，1表示第一次碰撞后的态，正方向自己领悟，求解过程中舍去了0和1相同的解。\par
+    采用矩阵记号表示这一结果：\par
+    \begin{equation}
+        \begin{bmatrix}
+            v_{1\parallel} \\
+            \omega_1r
+        \end{bmatrix}
+        =\frac{1}{7}
+        \begin{bmatrix}
+            3 & 4 \\
+            10 & -3 
+        \end{bmatrix}
+        \begin{bmatrix}
+            v_{0\parallel} \\
+            \omega_0r
+        \end{bmatrix}\tag{5.2}
+    \end{equation}
+    小球除了与筒壁碰撞，其他时候作匀速直线运动，运动轨迹如下：\par
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.3\linewidth]{yundong}
+        \caption*{任泓锦同学手绘的小球运动轨迹}
+        \label{yundong}
+    \end{figure}
+    容易知道：
+    \begin{equation}
+        \begin{bmatrix}
+            v_{n\parallel} \\
+            \omega_nr
+        \end{bmatrix}
+        =\frac{1}{7^n}
+        \begin{bmatrix}
+            3 & 4 \\
+            10 & -3 
+        \end{bmatrix}^n
+        \begin{bmatrix}
+            v_{0\parallel} \\
+            \omega_0r
+        \end{bmatrix}
+        =
+        \left\{
+            \begin{aligned}
+                &\frac{1}{7}
+                \begin{bmatrix}
+                    3 & 4 \\
+                    10 & -3 
+                \end{bmatrix}
+                \begin{bmatrix}
+                    v_{0\parallel} \\
+                    \omega_0r
+                \end{bmatrix}&(\text{n为奇数}) \\
+                &\begin{bmatrix}
+                    v_{0\parallel} \\
+                    \omega_0r
+                \end{bmatrix}&(\text{n为偶数})
+            \end{aligned}
+        \right . \tag{5.3}
+    \end{equation}
+事实上，每一次普遍碰撞满足的（二次）方程组都一样，给出不同的两个解，而每一次碰撞都会改变运动状态，故小球的运动参数依据奇偶性在两个解中来回切换.
+
+\noindent     （1）此时$\omega_0=0,v_{0\parallel}=v_0\sin\theta_0$,由以上推导，$v_{n\perp}=v_{0\perp}=v_0\cos\theta_0,\theta_n=\arctan\frac{v_{n\parallel}}{v_{n\perp}}$
+    ，故：
+    \begin{equation}
+        \theta_n=
+        \left\{
+            \begin{aligned}
+                &\theta_1=\arctan(\frac{3}{7}\tan\theta_0)&(\text{n为奇数}) \\
+                &\theta_0&(\text{n为偶数})
+            \end{aligned}
+        \right.\tag{5.4}
+    \end{equation}
+    \begin{equation}
+        r_{\min}=(R-r)\sin\theta_1=(R-r)\frac{\frac{3}{7}\tan\theta_0}{\sqrt{1+\frac{9}{49}\tan^2\theta_0}} \tag{5.5}
+    \end{equation}
+    \noindent     （2）需要更换参考系使得外力不做功，便于列出能量守恒方程. 这里选择\textbf{瞬时碰撞点的平动参考系}（惯性力有限不予考虑），容易发现此时与前面的情形等价，则：
+    \begin{equation}
+        \begin{bmatrix}
+            v_{n\parallel}-\varOmega R \\
+            \omega_nr
+        \end{bmatrix}
+        =
+        \left\{
+            \begin{aligned}
+                &\frac{1}{7}
+                \begin{bmatrix}
+                    3 & 4 \\
+                    10 & -3 
+                \end{bmatrix}
+                \begin{bmatrix}
+                    v_{0\parallel}-\varOmega R \\
+                    \omega_0r
+                \end{bmatrix}&(\text{n为奇数}) \\
+                &\begin{bmatrix}
+                    v_{0\parallel}-\varOmega R \\
+                    \omega_0r
+                \end{bmatrix}&(\text{n为偶数})
+            \end{aligned}
+        \right. \tag{5.6}
+    \end{equation}
+    此时$\omega_0=0,v_{0\parallel}=v_0\sin\theta_0,v_{n\perp}=v_{0\perp}=v_0\cos\theta_0$,即
+    \begin{equation}
+        \begin{bmatrix}
+            v_{n\parallel}\\
+            \omega_nr
+        \end{bmatrix}
+        =
+        \left\{
+            \begin{aligned}
+                &\begin{bmatrix}
+                    \frac{3}{7}v_0\sin\theta_0+\frac{4}{7}\varOmega R \\
+                    \frac{10}{7}(v_0\sin\theta_0-\varOmega R)
+                \end{bmatrix}&(\text{n为奇数}) \\
+                &\begin{bmatrix}
+                    v_0\sin\theta_0\\
+                    0
+                \end{bmatrix}&(\text{n为偶数})
+            \end{aligned}
+        \right. \tag{5.7}
+    \end{equation}
+    故
+    \begin{equation}
+        \theta_n=
+        \left\{
+            \begin{aligned}
+                &\theta_1=\arctan(\frac{3}{7}\tan\theta_0+\frac{4\varOmega R}{7v_0\cos\theta_0})&(\text{n为奇数}) \\
+                &\theta_0&(\text{n为偶数})
+            \end{aligned}
+        \right. \tag{5.8}
+    \end{equation}
+    \begin{equation}
+        r_{\min}=(R-r)\min\{\sin\theta_1,\sin\theta_0\} \tag{5.9}
+    \end{equation}
+    \noindent     （3）
+    换转动系，引入离心力和科里奥利力可得到牛顿运动方程：
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            &m\ddot{x}=m\varOmega^2 x+2m\varOmega \dot{y}\\
+            &m\ddot{y}=m\varOmega^2 y-2m\varOmega \dot{x}
+        \end{aligned}
+        \right. \tag{5.10}
+    \end{equation}
+这是一个二阶线性方程组，解这类方程最简便的方法是复数法. 考虑设$\tilde{r}=x+iy$，我们可以把两个方程合成一个
+\begin{equation}
+  \ddot{\tilde{r}}+2i\varOmega \dot{\tilde{r}}-\varOmega^2 \tilde{r}=0 \tag{5.11}
+\end{equation}
+其判别式$\Delta=-4\varOmega^2+4\varOmega^2=0$，特征根为$\lambda=-i\varOmega$，故通解为:
+\begin{equation}
+  \tilde{r}=(A+Bt)\mathrm{e}^{-i\varOmega t} \tag{5.12}
+\end{equation}
+其中$A,B$为待定常数. 在转动系中，小球的初始条件为：
+\begin{equation}
+  \tilde{r}_i=-i(R-r) \tag{5.13}
+\end{equation}
+\begin{equation}
+  \tilde{v}_i=v_0\sin{\theta_0}-\varOmega(R-r)+iv_0\cos{\theta_0} \tag{5.14}
+\end{equation}
+解得：
+\begin{equation}
+\begin{cases}
+  A=-\varOmega(R-r)+v_0\sin{\theta_0}+iv_0\cos{\theta_0}\\
+  B=-i(R-r)
+\end{cases} \tag{5.15}
+\end{equation}
+故
+\begin{equation}
+\tilde{r}(t)=\left[\left(-\varOmega(R-r)+v_0\sin{\theta_0}+iv_0\cos{\theta_0}\right)t-i(R-r)\right]\mathrm{e}^{-i\varOmega t} \tag{5.16}
+\end{equation}
+实虚部分离得到：
+\begin{equation}
+  \begin{cases}
+    x(t)=(-\varOmega(R-r)+v_0\sin{\theta_0})t\cos{\varOmega t}+(v_0t\cos{\theta_0}-(R-r))\sin{\varOmega t}\\
+    y(t)=(\varOmega(R-r)-v_0\sin{\theta_0})t\sin{\varOmega t}+(R-r-v_0t\cos{\theta_0})\cos{\varOmega t}
+  \end{cases} \tag{5.17}
+  \end{equation}
+
+这个式子是用参数方程表示的轨迹，虽然不是用显函数$y(x)$表达的，但学长已经拼尽全力无法战胜，还是将就一下吧.
+
+\clearpage
+\section*{第6题（50分）}
+\noindent （1）先确定各轴承的支持力. 由竖直方向平衡：
+\begin{equation}
+  N_1+N_2+N_3=Mg \tag{6.1}
+\end{equation}
+由力矩平衡：
+\begin{equation}
+  N_1(l-y)=(N_2+N_3)\Big(\frac{1}{2}l+y\Big) \tag{6.2}
+\end{equation}
+\begin{equation}
+  N_1x+N_2\Big(\frac{\sqrt{3}}{2}l+x\Big)=N_3\Big(\frac{\sqrt{3}}{2}l-x\Big) \tag{6.3}
+\end{equation}
+由于题目要求保留到一阶小，不妨直接设出支持力的形式为：
+\begin{equation}
+  N_1=\frac{1}{3}Mg\Big(1+\alpha_1\frac{x}{l}+\beta_1\frac{y}{l}\Big),\quad N_2=\frac{1}{3}Mg\Big(1+\alpha_2\frac{x}{l}+\beta_2\frac{y}{l}\Big),\quad N_3=\frac{1}{3}Mg\Big(1+\alpha_3\frac{x}{l}+\beta_3\frac{y}{l}\Big) \tag{6.4}
+\end{equation}
+代入(6.1)-(6.3)式，可得方程组：
+\begin{equation}
+  \begin{cases}
+    \alpha_1+\alpha_2+\alpha_3=0 \notag\\
+    3+\frac{\sqrt{3}}{2}\alpha_2-\frac{\sqrt{3}}{2}\alpha_3=0 \notag\\
+    \alpha_1-\frac{1}{2}\alpha_2-\frac{1}{2}\alpha_3=0 \notag\\
+    \beta_1+\beta_2+\beta_3=0 \notag\\
+    \beta_1-\frac{1}{2}\beta_2-\frac{1}{2}\beta_3-3=0 \notag\\
+    \frac{\sqrt{3}}{2}\beta_2-\frac{\sqrt{3}}{2}\beta_3=0 \notag
+  \end{cases} \tag{6.5}
+\end{equation}
+解得：
+\begin{equation}
+  \alpha_1=0,\quad \alpha_2=-\sqrt{3},\quad \alpha_3=\sqrt{3},\quad \beta_1=2,\quad \beta_2=-1,\quad \beta_3=-1 \tag{6.6}
+\end{equation}
+再来分析个轴承与盘接触点的摩擦力. 计算可知圆盘在各接触点的相对速度矢量分别为：
+\begin{equation}
+  \bm{v}_1=(\dot{x},\dot{y}+v_0 ),\quad \bm{v_2}=\Big( \dot{x}-\frac{\sqrt{3}}{2}v_0,\dot{y}-\frac{1}{2}v_0\Big),\quad 
+  \bm{v_3}=\Big( \dot{x}+\frac{\sqrt{3}}{2}v_0,\dot{y}-\frac{1}{2}v_0\Big) \tag{6.7}
+\end{equation}
+需要考虑摩擦力沿$x,y$轴的分量，故考虑如下精确到一阶的展开：
+\begin{equation}
+  \begin{cases}
+\displaystyle \frac{\dot{x}}{\sqrt{\dot{x}^2+(\dot{y}+v_0)^2}}\sim \frac{\dot{x}}{v_0},\quad \frac{\dot{y}+v_0}{\sqrt{\dot{x}^2+(\dot{y}+v_0)^2}}\sim 1\\
+\displaystyle\frac{\dot{x}-\frac{\sqrt{3}}{2}v_0}{\sqrt{(\dot{x}-\frac{\sqrt{3}}{2}v_0)^2+(\dot{y}-\frac{1}{2}v_0)^2}}\sim 
+-\frac{\sqrt{3}}{2}+\frac{1}{4}\frac{\dot{x}}{v_0}-\frac{\sqrt{3}}{4}\frac{\dot{y}}{v_0},\quad \frac{\dot{y}-\frac{1}{2}v_0}{\sqrt{(\dot{x}-\frac{\sqrt{3}}{2}v_0)^2+(\dot{y}-\frac{1}{2}v_0)^2}}\sim -\frac{1}{2}-\frac{\sqrt{3}}{4}\frac{\dot{x}}{v_0}+\frac{3}{4}\frac{\dot{y}}{v_0}\\
+\displaystyle\quad \frac{\dot{x}+\frac{\sqrt{3}}{2}v_0}{\sqrt{(\dot{x}+\frac{\sqrt{3}}{2}v_0)^2+(\dot{y}-\frac{1}{2}v_0)^2}}\sim 
+\frac{\sqrt{3}}{2}+\frac{1}{4}\frac{\dot{x}}{v_0}+\frac{\sqrt{3}}{4}\frac{\dot{y}}{v_0},\quad \frac{\dot{y}-\frac{1}{2}v_0}{\sqrt{(\dot{x}+\frac{\sqrt{3}}{2}v_0)^2+(\dot{y}-\frac{1}{2}v_0)^2}}\sim -\frac{1}{2}+\frac{\sqrt{3}}{4}\frac{\dot{x}}{v_0}+\frac{3}{4}\frac{\dot{y}}{v_0}
+  \end{cases}\notag
+\end{equation}
+由此可计算圆盘受到的合力：
+\begin{align}
+  \textbf{$x$方向：}  f_x=-\frac{1}{3}\mu Mg\Big[\frac{\dot{x}}{v_0}\cdot\Big(1&+2\frac{y}{l}\Big)+\Big(-\frac{\sqrt{3}}{2}+\frac{1}{4}\frac{\dot{x}}{v_0}-\frac{\sqrt{3}}{4}\frac{\dot{y}}{v_0}\Big)\cdot (1-\sqrt{3}\frac{x}{l}-\frac{y}{l})\notag\\
+  &+\Big(\frac{\sqrt{3}}{2}+\frac{1}{4}\frac{\dot{x}}{v_0}+\frac{\sqrt{3}}{4}\frac{\dot{y}}{v_0}\Big)\cdot (1+\sqrt{3}\frac{x}{l}-\frac{y}{l})\Big] =-\mu Mg\Big(\frac{x}{l}+\frac{1}{2}\frac{\dot{x}}{v_0}\Big) \tag{6.8}
+\end{align}
+同样地，计算可得：
+\begin{equation}
+  \textbf{$y$方向：} f_y=-\mu Mg\Big(\frac{y}{l}+\frac{1}{2}\frac{\dot{y}}{v_0}\Big) \tag{6.9}
+\end{equation}
+\noindent （2）由于圆盘在$x,y$两个方向的受力数学形式相同，讨论$x$方向的运动情况即可. 由牛顿第二定律：
+\begin{equation}
+  \ddot{x}+\frac{\mu g}{2v_0}\dot{x}+\frac{\mu g}{l}x=0 \tag{6.10}
+\end{equation}
+令$\displaystyle\beta=\frac{\mu g}{4v_0},\omega_0=\sqrt{\frac{\mu g}{l}}$，则上式可化为$\ddot{x}+2\beta\dot{x}+\omega_0^2x=0$，以下来根据$\beta$与$\omega_0$的大小关系来讨论速度满足的条件.
+
+\noindent \textbf{1. 欠阻尼$\beta<\omega_0$}\\
+此时方程的通解为：
+\begin{equation}
+  x(t)=\mathrm{e}^{-\beta t}(A\cos{\omega t}+B\sin{\omega t}),\quad \omega\equiv \sqrt{\omega_0^2-\beta^2} \tag{6.11}
+\end{equation}
+考虑到初值条件，最终解为：
+\begin{equation}
+  x(t)=\mathrm{e}^{-\beta t}\Big[x_0\cos{\omega t}+\frac{\dot{x_0}+\beta x_0}{\omega}\sin{\omega t}\Big] \tag{6.12}
+\end{equation}
+由其振荡形式知必存在$x$为负的时刻，故该情形下不满足讨论的条件.
+
+\noindent \textbf{2. 临界阻尼$\beta=\omega_0$}\\
+此时方程的通解为：
+\begin{equation}
+  x(t)=\mathrm{e}^{-\beta t}(A+Bt) \tag{6.13}
+\end{equation}
+考虑到初值条件，最终解为：
+\begin{equation}
+  x(t)=x_0\mathrm{e}^{-\beta t}+(\dot{x_0}+\beta x_0)t\mathrm{e}^{-\beta t} \tag{6.14}
+\end{equation}
+要求其恒大于0，计算结果为：
+\begin{equation}
+\dot{x_0}\geq-\beta x_0 \tag{6.15}
+\end{equation}
+
+\noindent \textbf{3. 过阻尼$\beta>\omega_0$}\\
+此时方程的通解为：
+\begin{equation}
+  x(t)=\mathrm{e}^{-\beta t}(Ae^{\omega' t}+Be^{-\omega' t}), \quad \omega '\equiv \sqrt{\beta^2-\omega_0^2} \tag{6.16}
+\end{equation}
+考虑到初值条件，最终解为：
+\begin{equation}
+  x(t)=\displaystyle\frac{1}{2}\mathrm{e}^{-\beta t}\Big[\Big(\frac{\dot{x_0}+(\beta+\omega')x_0}{2\omega'}\Big)e^{\omega' t}+\Big(\frac{-\dot{x_0}+(-\beta+\omega')x_0}{2\omega'}\Big)e^{-\omega' t}\Big] \tag{6.17}
+\end{equation}
+要求其恒大于0，计算结果为：
+\begin{equation}
+  \dot{x_0}\geq-(\beta+\omega') x_0 \tag{6.18}
+  \end{equation}
+$y$方向同理可作上述讨论，最后对$y_0,\dot{y_0}$的要求数学形式与$x$的完全一致.
+  
+\noindent （3）\\
+由对称性知，圆盘的中心始终位于原点，不存在平动速度. 故任意接触点摩擦力的切向分量为：
+\begin{equation}
+  f_{\tau}=-\frac{1}{3}\mu Mg\frac{l\varOmega}{\sqrt{(l\varOmega)^2+v_0^2}} \tag{6.19}
+\end{equation}
+因此，转动定理给出：
+\begin{equation}
+  \displaystyle\frac{1}{2}MR^2\dot{\varOmega}=-\mu Mg\frac{l^2\varOmega}{\sqrt{(l\varOmega)^2+v_0^2}}\tag{6.20}
+\end{equation}
+积分：
+\begin{equation}
+  \displaystyle \int_{\varOmega_0}^{\varOmega}\frac{\sqrt{\varOmega^2+(\frac{v_0}{l})^2}}{\varOmega}\mathrm{d}\varOmega=-\frac{2\mu gl}{R^2}\int_0^t\mathrm{d}t \tag{6.21}
+\end{equation}
+最终结果为：
+\begin{equation}
+  t=-\displaystyle\frac{R^2}{2\mu gl}\Big\{\sqrt{\varOmega^2+(\frac{v_0}{l})^2}-\sqrt{\varOmega_0^2+(\frac{v_0}{l})^2}-\frac{v_0}{l}\Big[ \ln{\frac{\sqrt{\varOmega^2+(\frac{v_0}{l})^2}+\frac{v_0}{l}}{\sqrt{\varOmega^2+(\frac{v_0}{2l})^2}-\frac{v_0}{l}}}-\ln{\frac{\sqrt{\varOmega_0^2+(\frac{v_0}{2l})^2}+\frac{v_0}{l}}{\sqrt{\varOmega_0^2+(\frac{v_0}{l})^2}-\frac{v_0}{l}}}\Big]\Big\} \tag{6.22}
+\end{equation}
+
+\clearpage
+
+\section*{第7题（50分）}
+\noindent （1）这个题的出题背景是相对论中的Terrell旋转效应. 我们应同时考虑运动引发的尺缩效应以及运动带来的视觉偏差. 首先，在地面系中，由于尺缩效应，轨道将变为一个以$y$轴为长轴的正椭圆. 其半长轴与半短轴分别为
+\begin{equation}
+A=R,\quad B=\sqrt{1-\beta^2}R \tag{7.1}
+\end{equation}
+因此地面系中的椭圆方程可以写为：
+\begin{equation}
+  \frac{x'^2}{(1-\beta^2)R^2}+\frac{y'^2}{R^2}=1 \tag{7.2}
+  \end{equation}
+由于光的传播需要时间，观察者位于$y$轴无穷远处，因此$y'$越大的点越提前被看到，假设$y'=0$的点被看到时位于$x'=0$处，我们得到看到时的坐标为:
+\begin{equation}
+  x=x'+\beta y',\quad y=y' \tag{7.3}
+\end{equation}
+则看到的曲线方程为
+\begin{equation}
+  \frac{(x-\beta y)^2}{(1-\beta^2)R^2}+\frac{y^2}{R^2}=1 \tag{7.4}
+  \end{equation}
+这是一个斜椭圆，我们做$45^\circ$旋转变换，即
+\begin{equation}
+  \begin{cases}
+    \displaystyle
+x=\frac{1}{\sqrt{2}}(X-Y)\\
+    \displaystyle
+y=\frac{1}{\sqrt{2}}(X+Y)
+  \end{cases}\tag{7.5}
+  \end{equation}
+则方程化为：
+\begin{equation}
+\displaystyle\frac{X^2}{\frac{1+\beta}{1-\beta}}+\frac{Y^2}{\frac{1-\beta}{1+\beta}}=R^2 \tag{7.6}
+\end{equation}
+我们看到，这恰恰是椭圆的标准方程，因此这个斜椭圆的倾斜角即为$\theta=45^\circ$，半长轴与半短轴分别为：
+\begin{equation}
+a=\sqrt{\frac{1+\beta}{1-\beta}}R,\quad b=\sqrt{\frac{1-\beta}{1+\beta}}R \tag{7.7}
+\end{equation}
+
+
+\noindent （2）
+\noindent \textbf{法一：LRL矢量}\\
+这里先简单介绍一下隆格-楞茨（LRL）矢量，它在平方反比力的有心力场问题中很有用.\\
+
+\noindent 当有心力的形式为$\displaystyle \vec{F_r}=-\frac{k}{r^2}\hat{r}$时，LRL矢量定义为：
+\begin{equation}
+\vec{B}\equiv m\vec{v}\times\vec{L}-km\hat{r} \tag{7.8}
+\end{equation}
+在本问题中$m$为恒星质量，$L$为恒星相对于黑洞的角动量. 在无相对论修正的情形下，可以证明该矢量是守恒的：
+\begin{equation}
+  \frac{\mathrm{d}\vec{B}}{\mathrm{d}t}=m\Big(\frac{\mathrm{d}\vec{v}}{\mathrm{d}t}\times \vec{L}+\vec{v} \times \frac{\mathrm{d}\vec{L}}{\mathrm{d}t}-k\frac{\mathrm{d}\hat{r}}{\mathrm{d}t}\Big)=-\frac{mk}{r^2}\hat{r} \times \vec{L}-mk\dot{\theta}\hat{\theta}=0 \tag{7.9}
+\end{equation}
+因此LRL矢量模长与方向均不变，以下来分别说明. 首先，LRL矢量在极坐标系下可具体写为：
+\begin{equation}
+  \vec{B}=mL(-v_r\hat{\theta}+v_{\theta}\hat{r})-mk\hat{r}\tag{7.10}
+\end{equation}
+故可计算其模长：
+\begin{equation}
+  |\vec{B}|=\sqrt{m^2L^2v_r^2+(mLv_\theta-mk)^2}=\sqrt{m^2L^2v^2+m^2k^2-2m^2v_{\theta}kL}\tag{7.11}
+\end{equation}
+将$\displaystyle E=\frac{1}{2}m(v_r^2+v_{\theta}^2)-\frac{k}{r},L=mrv_{\theta}$代入，可化简得：
+\begin{equation}
+  |\vec{B}|=\sqrt{2mEL^2+m^2k^2} \tag{7.12}
+\end{equation}
+显然此式守恒. 再来考虑方向，我们来计算点乘：
+\begin{equation}
+  \vec{B}\cdot \vec{r}=Br\cos{\theta}=mL(-v_r\hat{\theta}+v_{\theta}\hat{r})\cdot r\hat{r}-mk\hat{r}\cdot r\hat{r}=L^2-mkr \tag{7.13}
+\end{equation}
+变形得到：
+\begin{equation}
+  r=\frac{L^2}{mk+B\cos{\theta}}\sim \frac{p}{1+e\cos{\theta}},\qquad p\equiv\frac{L^2}{mk},e\equiv \frac{B}{mk}\tag{7.14}
+\end{equation}
+由此证明了恒星的运动轨迹为圆锥曲线（在本题条件下即为椭圆）. 当$\theta=0$时，$\displaystyle r=\frac{p}{1+e}$对应“近日点”到长轴端点的距离，此时$\vec{r}$与$\vec{B}$相同，表明\textbf{$\mathrm{LRL}$矢量的方向沿长轴}.
+
+以上讨论的是经典力学情形. 当考虑（狭义）相对论的修正时，角动量和能量仍然守恒，然而LRL矢量不再守恒：
+\begin{equation}
+  \frac{\mathrm{d}\vec{B}}{\mathrm{d}t}=
+  \frac{\mathrm{d}(m\vec{v})}{\mathrm{d}t}\times \vec{L}+m\vec{v}\times \frac{\mathrm{d}\vec{L}}{\mathrm{d}t}-mk\frac{\mathrm{d}\hat{r}}{\mathrm{d}t}-\frac{\mathrm{d}\vec{m}}{\mathrm{d}t}k\hat{r}
+  =-\frac{\mathrm{d}m}{\mathrm{d}t}k\hat{r} \tag{7.15}
+\end{equation}
+此处的$m$是动质量，其值由质能关系给出：
+\begin{equation}
+  mc^2-\frac{k}{r}=E(\mathrm{const}),\quad \frac{\mathrm{d}m}{\mathrm{d}t}=-\frac{k}{c^2 r^2}\frac{\mathrm{d}r}{\mathrm{d}t} \tag{7.16}
+\end{equation}
+代入前式，得到：
+\begin{equation}
+  \frac{\mathrm{d}\vec{B}}{\mathrm{d}t}=\frac{k}{c^2 r^2}\dot{r}\hat{r} \tag{7.17}
+\end{equation}
+注意到此变化率是沿径向$\hat{r}$的，而进动角正是$\vec{B}$的旋转角，因此只需要考察一个周期内$\vec{B}$的横向变化量：
+\begin{equation}
+\frac{\text{d}B_\bot}{\text{d}t}=-\frac{k^2}{c^2}\frac{\text{d}(\frac{1}{r})}{\text{d}t}\sin{\theta}\tag{7.18}
+\end{equation}
+对上式积分，并代入未修正时的轨道方程$\displaystyle\frac{1}{r_0(\theta)}=\frac{1}{p}(1+e\cos{\theta})$，可得：
+\begin{equation}
+\Delta{B_\bot}=\frac{k^2}{L^2c^2}\int_0^{2\pi}B\sin^2{\theta}\text{d}\theta=\frac{{\pi}k^2B}{c^2L^2}\tag{7.19}
+\end{equation}
+进动角即为：
+\begin{equation}
+\Delta{\theta}=\frac{\Delta{B_\bot}}{B}=\frac{{\pi}k^2}{c^2L^2} \tag{7.20}
+\end{equation}
+本题中$k=GMm$，$L=m\sqrt{GMR}$，故最终可得：
+\begin{equation}
+\Delta{\theta}=\pi \Big(\frac{GM}{Rc^2}\Big) \tag{7.21}
+\end{equation}
+
+\noindent \textbf{法二：Binet方程}\\
+在一般的有心力问题中，轨道方程的微分形式由Binet方程给出：
+\begin{equation}
+\displaystyle \frac{\text{d}^2u}{\text{d}\theta^2}+u=-\frac{m}{L^2u^2}f(\frac{1}{u}),\quad u\equiv \frac{1}{r}\tag{7.22}
+\end{equation}
+特别地，在平方反比力场中$\displaystyle f(\frac{1}{u})=-\frac{k}{r^2}=-ku^2$，代入整理可得：
+\begin{equation}
+\displaystyle \frac{\text{d}^2u}{\text{d}\theta^2}+u=+\frac{mk}{L^2} \tag{7.23}
+\end{equation}
+在无相对论的情形下，由上式可以解得：
+\begin{equation}
+u_0(\theta)=\frac{1}{r(\theta)}=r_0(1+e\cos\theta)
+\tag{7.24}
+\end{equation}
+其中$A,B$为可由能量$E$与角动量$L$确定的常数（已通过选取适当的极坐标轴使得初相位为0）. 当离心率$0<e<1$时，上式便给出常见的椭圆轨道方程.
+
+而当考虑狭义相对论修正时，随黑洞平动的参考系中$m$的值由质能关系$m=\displaystyle\frac{E}{c^2}+\frac{k}{c^2r}$给出，故(7.22)式变为：
+\begin{equation}
+\displaystyle \frac{\text{d}^2u}{\text{d}\theta^2}+\Big(1-\frac{k^2}{c^2L^2}\Big)u=\frac{Ek}{L^2c^2} \tag{7.25}
+\end{equation}
+相应地，解应修正为：
+\begin{equation}
+u(\theta)=r_0\Big(1+e\cos\sqrt{1-\frac{k^2}{c^2L^2}}\theta\Big) \tag{7.26}
+\end{equation}
+这是一个进动的椭圆，轨道的长轴方向会缓慢旋转. 此时恒星转过“一周”时转过的角度$\varphi$为：
+\begin{equation}
+\varphi=\displaystyle\frac{2\pi}{\sqrt{1-\frac{k^2}{c^2L^2}}}\sim 2\pi \Big(1+\frac{k^2}{2c^2L^2}\Big)
+ \tag{7.27}
+\end{equation}
+最终得到进动角为：
+\begin{equation}
+\Delta{\theta}=\varphi-2\pi=\pi\Big(\frac{k}{cL}\Big)^2=\pi\Big(\frac{GM}{Rc^2}\Big)
+ \tag{7.28}
+\end{equation}
+\\
+\\
+
+\section*{致谢（碎碎念）}
+这张试卷好难！很多小问的计算量或技巧性都达到或超过了复赛水平！但是同学们不要灰心，时间会让一切都变得平常；经过更高难度的训练后，你们可能会发现当年的这些题也不过尔尔，各种套路的背后都有迹可循. 加油！\\
+
+\noindent 感谢以下同学的付出：\\
+
+\noindent 轻松解题的计算之神\quad \textbf{谢航}\\
+砍瓜切菜的可耻哥\quad \textbf{谭景仁}\\
+热心解决大部分问题的小天才 \quad \textbf{任泓锦}\\
+辛苦码字的生产队的驴\quad \textbf{杨泽宇}\\
+以及永远亲切关怀着大家的——\textbf{江鸟飞}!
+
+
+\end{document}
+

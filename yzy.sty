@@ -1,0 +1,114 @@
+\usepackage{booktabs} %三线表需要加载宏包{booktabs}
+\usepackage{diagbox}
+\usepackage{multirow}
+% 斜线表加载宏包{diag}和{multirow}
+\usepackage{booktabs}
+%混合标题表格排版
+
+
+\usepackage{pifont} %圆圈序号 
+
+\usepackage[table]{xcolor} % 注意要添加table选项 表格背景颜色
+
+\usepackage{physics}
+
+
+%页眉页脚设置
+%\pagestyle{plain}
+
+\usepackage{graphicx}             %插入图片格式文件
+\usepackage{float}                %浮动体
+\usepackage{caption}              %图片标题编辑
+\captionsetup[figure]{name=Picture,font={small,it}}
+\usepackage{subcaption}           %子标题
+\subcaptionsetup[figure]{name=Graph,font={small,it}}
+
+%\usepaacakge{psfig}     
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{amsfonts,amssymb,amsthm,amsmath,physics,extarrows}
+\usepackage{multirow, makecell}
+
+\geometry{a4paper, left=1.9cm, right=1.9cm, top=2cm, bottom=1.5cm}
+
+\numberwithin{equation}{section}
+
+\usepackage{hyperref}
+\hypersetup{hidelinks, colorlinks=true, linkcolor=teal, citecolor=black}
+
+%不要页眉就把下面几行注释掉或删掉
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\fancypagestyle{fancy}{
+\fancyhf{}
+\lhead{\the\year 年 \the\month 月}
+\chead{\centering\@title}
+\rhead{第 \thepage\ 页\ \ 共 \pageref{LastPage}\ 页}
+\lfoot{}
+\cfoot{}
+\rfoot{}}
+\pagestyle{fancy}
+
+
+\def\title#1{\gdef\@title{#1}}
+\def\class#1{\gdef\@class{#1}}
+\def\name#1{\gdef\@name{#1}}
+\def\id#1{\gdef\@id{#1}}
+
+\class{[班级]}\name{[姓名]}\id{[学号]}
+\renewcommand\maketitle{
+    \vspace*{.5em}
+    \begin{center}
+        \LARGE{\textbf\@title}
+    \end{center}
+    \vspace*{.2em}
+    \begin{center}
+        \kaishu{\@class\ \ \@name\ \ \@id}
+    \end{center}
+    \vspace*{1em}
+}
+
+%水印设置
+%\usepackage{draftwatermark}
+
+%\SetWatermarkText{\@title}
+
+%\SetWatermarkLightness{0.9}
+%\SetWatermarkScale{0.5}
+
+
+%标题格式设置
+\usepackage{titlesec}
+%\titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
+
+% 定义subsection的格式
+%\titleformat{\subsection}[runin]{\bfseries}{\thesubsection}{1em}{}[]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{bm}
+
+
+%参考文献超链接格式设置
+%\usepackage[graphicx]{realboxes}
+
+%\usepackage[colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+%\upcite引用角标设置
+
+
+\usepackage{hyperref}
+
+%背景色设置
+\usepackage{hyperref}
+\usepackage{soul} % 导入 soul 包
+\usepackage{color, xcolor} % 颜色包，color 必须导入，xcolor 建议导入
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, theorems}
+
+\usepackage{lipsum}
+

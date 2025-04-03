@@ -1,0 +1,245 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{偏振光学实验报告}
+\class{物理 32}
+\name{杨泽宇}
+\id{2023011329}
+
+\begin{document}
+\maketitle
+
+\section*{摘要}
+本实验将研究光的一些基本偏振特性，并验证其是否与已有理论相符。通过学习偏振片和波片的原理与使用，我们将完成偏振光的起偏和检偏，加深对相关现象的理解。
+
+
+\section{实验原理}
+
+\subsection*{1.\quad 光波的偏振态}
+
+一束圆频率为$\omega$的单色完全偏振光，可分解为两个偏振方向互相垂直的线偏振光的叠加，即：
+\begin{equation}
+\begin{cases}
+  E_x =a_1\cos(\omega t)\\
+  E_y =a_2\cos(\omega t+\delta)
+\end{cases}
+\end{equation}
+
+式中$\delta$是$x$方向相对于$y$方向的相位差，$a_1$和$a_2$分别是两偏振分量的振幅。取定$0\leqslant\delta<2\pi$以及$a_1,a_2>0$，以上三个参数就完全确定了光波的偏振状态。\\
+\noindent \textbf{1.当$\delta=0/\pi$时，}式（1.1）描述了线偏振光，其方位角定义为$\alpha=\arctan(\frac{a_2}{a_1}\cos{\delta})$。\\
+\noindent \textbf{2.当$\delta=\pm\pi/2$且$a_1=a_2$时，}式（1.1）描述了圆偏振光，而$\delta$的正负决定了其电矢量的旋转方向（迎着光的方向右旋为正）。\\
+\noindent \textbf{3.除了上述特殊情形，式（1.1）描述的都是椭圆偏振光。}一般地，对其的描述需要光强、长轴方位角$\psi$、半短轴与长轴之比$b/a$及椭圆的旋向四个参数确定，且存在下述关系：
+\begin{equation}
+  \psi=\frac{1}{2}\arctan\left(\tan{2\beta}\cdot\cos{\delta}\right),\quad \beta=\arctan\left(\frac{a_2}{a_1}\right)
+\end{equation}
+\begin{equation}
+  \frac{b^2}{a^2}=\frac{2}{1+\sqrt{1-(\sin{\delta}\cdot\sin{2\beta})^2}}-1
+\end{equation}
+其中反正切函数的取值应根据$a_1$和$a_2$的大小关系（或辅助角$\beta$的值）来决定。
+
+\textbf{偏振片}有相互正交的透射轴与消光轴，能将通过其的光波变为电矢量平行于透射轴方向的线偏振光。设沿透射轴的透射率为$T_1$，沿消光轴的透射率为$T_2$，则\textbf{马吕斯定律}指出，振动方向与透射轴夹角为$\theta$的光波通过偏振片后的透射率为：
+\begin{equation}
+  T_{\theta}=T_1\cos^2{\theta}+T_2\sin^2{\theta}=(T_1-T_2)\cos^2{\theta}+T_2
+\end{equation}
+
+再来考虑反射与折射时的起偏现象。平面电磁波以入射角$\theta_i$从真空中入射到折射率为$n$的介质表面时，会发生反射与折射；特别地，其能流的反射率由菲涅尔公式给出：
+\begin{equation}
+  R_{\perp}=\left(\frac{n\cos{\theta_i}-\cos{\theta_t}}{n\cos{\theta_i}+\cos{\theta_t}}\right)^2,\quad R_{\parallel}=\left(\frac{\cos{\theta_i}-n\cos{\theta_t}}{\cos{\theta_i}+n\cos{\theta_t}}\right)^2
+\end{equation}
+从上式中可以看出，当$\theta_i+\theta_t=\frac{\pi}{2}$，即$\theta_i=\arctan{n}=\theta_B$时，$R_{\perp}=0$，即反射光与介质表面垂直的电矢量分量完全消失。这样的角度$\theta_B$称为\textbf{布儒斯特角}。
+
+\subsection*{2.\quad 波片}
+\textbf{波片}是一种具有双折射性质的光学元件，能够使通过其的光波的两个偏振分量的相位差出现相延$\delta_r$:
+\begin{equation}
+  \delta_r=\frac{2\pi}{\lambda_0}(n_y-n_x)d
+\end{equation}
+其中$\lambda_0$是真空中的波长，$d$是波片的厚度，$n_x$和$n_y$分别是波片快轴方向和慢轴方向的折射率。
+
+线偏振光入射波片，出射时通常变为椭圆偏振光。设入射的线偏振光振动方位角为$\beta$，延迟器快慢轴分别在$y_r,x_r$方向，则出射光$x_r$方向相对于$y_r$方向的相延$\delta_r$满足：
+\begin{equation}
+  |\sin{\delta_r}|=\frac{2\sqrt{I_{min}/I_{max}}}{\sin{2\beta}(1+I_{min}/I_{max})}
+\end{equation}
+其中$I_{min}/I_{max}$是旋转检偏器测得的极值光强比，而$\delta_r$的符号要用椭圆偏振光的旋向测定。
+\section{实验仪器及实验内容}
+\subsection*{1.\quad 仪器介绍}
+实验主体装置以分光计为基础，包括半导体激光器（光源）、椭偏盘1（含起偏器P）、椭偏盘2（含检偏器A）、硅光电池（探测光强） 等部分，另外准备了$C_0$,$C_x$两个1/4波片。其中，激光器输出波长为650nm的近似线偏振光，起偏后的光强可通过调整其方位角调节；光强探测电路中电阻箱阻值不应超过500$\Omega$。
+\subsection*{2.\quad 实验步骤}
+\subsubsection*{A\quad 准备工作}
+\noindent 开启激光光源，确认光束通过起偏器及检偏器，调节载物平台与分光计主轴垂直。
+\subsubsection*{B\quad 布儒斯特角和偏振器的特性观测}
+\noindent \textbf{1.观测布氏角} \quad 将反射元件放在平台上，预置光束入射角$\theta_i\approx 55°$，反复调节P方位角及$\theta_i$使得白屏上的反射光点最暗，由此定出取得布儒斯特角$\theta_B$时的平台方位角$\alpha_B$（注意在较大范围内调节方位角观察变化，防止假消光）。此时透射轴位于水平方向，记录度盘读数$p_{\leftrightarrow}$，并重复调节测量$\alpha_{B}$及$p_{\leftrightarrow}$ 3 次。最后利用自准直法测定激光入射方位$\alpha_{i=0}$，则有$\theta_B=\alpha_B-\alpha_{i=0}$。\\
+\noindent \textbf{2.定偏振器透射轴方向}\quad 置P盘于$a_{\leftrightarrow}$平均值位置。移去反射元件，转动检偏器A使它和P正交消光，这时A的透射轴已与P的透射轴正交，记录此时A的度盘读数$a_{\updownarrow}$。\\
+\noindent \textbf{3.测定透射光强与两偏振器夹角的关系}\quad 在两偏振器透射轴夹角$\theta=0,15,30,45,60,75,80,84,87,90$度时分别测量透射光强$I_m$，并由此绘制$(I_{m}-I_{min})/(I_{max}-I_{min})-\theta$散点关系图及$\cos^2{\theta}-\theta$曲线图。
+\subsection*{C\quad 波片的特性研究}
+\noindent \textbf{1.定波片$C_0$的快轴方向} \quad 安装波片$C_0$，利用消光现象调节其快轴位于竖直方向，读出刻度盘方位角。\\ 
+\noindent \textbf{2.定波片$C_x$的轴方向}\quad 将待测波片$C_x$置于平台上，使光束垂直透过，定出其某一轴在竖直方向时的度盘示值。（此时$C_0$仍在光路中，方向不变）\\
+\noindent \textbf{3.观测偏振光通过1/2波片或全波片的现象}\quad 令$C_0$的快轴与$C_x$的某一轴平行，旋转起偏器和检偏器，观测线偏振光经过波片组后偏振态的改变；由测量数据判断它们近似组成了1/2波片还是全波片，并判定$C_x$的快轴方向。随后将$C_x$转动至另一轴与$C_0$快轴平行组成新的波片组，重新观测结果。\\
+\noindent \textbf{4.观测线偏振光通过1/4波片的现象} \quad 置1/4波片$C_0$的慢轴于水平方向，在起偏器的透射轴与慢轴夹角$\beta=22.5, 45, 67.5$ 度时，分别测出透射光的长轴方位角$\psi$相关的数据、光强的最大值$I_{max}$和最小值$I_{min}$。由此计算方位角$\psi$及波片的相延$\delta_r$。
+
+\clearpage
+\section{数据处理}
+
+\subsection*{B\quad 布儒斯特角和偏振器的特性观测}
+\subsubsection*{B.1 \quad 观测布氏角}
+\noindent 光束正入射棱镜表面时平台方位角$\alpha_{i=0}=349°31'$
+\begin{table}[h]
+  \caption{布氏角数据测定} \vspace{0.2em}
+  \centering
+  \begin{tabular}{cccccc}
+    \hline
+      & 1& 2& 3& \\
+    $\alpha_B$& $46°34'$ & $46°23'$ & $46°32'$ &  \\
+    $p_{\leftrightarrow}$& $162.2°$ & $162.0°$ & $162.4°$ &  \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\noindent 求平均值：$\bar{p}_{\leftrightarrow}=162.2°$，$\bar{\alpha}_B=46°30'$.\\
+故$\theta_B=\bar{\alpha}_B-\alpha_{i=0}=46°30'-349°31'+360°=56°59'$，棱镜折射率$n=\tan{\theta_B}=\tan{56°59'}=1.539$。
+
+\subsubsection*{B.2 \quad 定偏振器透射轴方向}
+\noindent 测量结果： 起偏器P的透射轴在水平方向的方位角：$p_{\leftrightarrow}=162.2°$\\
+\indent \quad \quad \quad 检偏器A和P正交（即透射轴竖直）时，A的方位角：$a_{\uparrow}=172.2°$
+
+\subsubsection*{B.3 \quad 测定透射光强与两偏振器夹角的关系}
+\noindent $R=100\Omega$,\quad $p=p_{\leftrightarrow}=162.2°$,\quad $a_{\uparrow}=172.2°$ \quad \quad $\bf{I_0}$（挡住光源时）$\bf{=-0.009\mathrm{mV}}$
+\begin{table}[H]
+  \caption{$I_m-\theta$关系} \vspace{0.2em}
+  \centering
+  \resizebox{0.8\linewidth}{!}
+  {
+  \begin{tabular}{cccccccccccc}
+    \hline
+    $\theta$（°）&     0.0&  15.0&  30.0&  45.0&  60.0&  75.0&  80.0&  84.0&  87.0&  90&  \\
+    $a=a_{\uparrow}+\theta+90°$& $262.2°$& $277.2°$& $292.2°$& $307.2°$& $322.2°$& $337.2°$& $342.2°$& $346.2°$& $349.2°$& $352.2°$&  \\
+    $I_m$测量值（mV）& 2.531& 2.502& 2.182& 1.581& 0.855& 0.243& 0.111& 0.034& 0.004& -0.007& \\
+    \hline
+    \end{tabular}}
+\end{table}
+
+\noindent 由此可以确定$I_{max}=2.531\mathrm{mV}$，$I_{min}=-0.007\mathrm{mV}$，消光比$\frac{I_{min}-I_0}{I_{max}-I_0}=0.0008.$\\
+绘制$(I_{m}-I_{min})/(I_{max}-I_{min})-\theta$及$\cos^2{\theta}-\theta$散点关系图如下：
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.38]{1.png}
+\end{figure}
+
+\clearpage
+\subsection*{C\quad 波片的特性研究}
+\subsubsection*{C.1,2 \quad 确定波片的轴方向}
+\noindent $R=100\Omega$,\quad $p=p_{\leftrightarrow}=162.2°$,\quad $a=a_{\uparrow}=172.2°$\\
+\noindent \textbf{测量结果：} 波片$C_0$快轴在竖直方向时，度盘示值$\bf{C_0}=179.8°$;\\
+\indent \quad \quad \quad 波片$C_x$的某一轴在竖直方向时，度盘示值$\bf{C_x}=141.0°$.
+
+\subsubsection*{C.3 \quad 观测偏振光通过1/2波片或全波片}
+\noindent (1) $\bf{C_0}=179.8°, \quad \bf{C_x}=141.0°$
+\begin{table}[!htbp]
+  \centering
+  \caption{偏振态改变的测定1（单位：°）}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|ccc}
+  \toprule
+  $\beta=p-p_{\leftrightarrow}$& $p$& 消光时A度盘读数$a_i$&$\alpha=a_i-a_{\uparrow}$ \\
+  \midrule
+  15.0& 177.2& 186.6& 14.4\\
+  30.0& 192.2& 197.8& 25.6\\
+  45.0& 207.2& 216.0& 43.98\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+\noindent P,A两盘旋转不同步，可见此时组成的是1/2波片，$C_x$的快轴在竖直方向。\\
+\noindent (2) $\bf{C_0}=89.8°, \quad \bf{C_x}=141.0°$
+\begin{table}[!htbp]
+  \centering
+  \caption{偏振态改变的测定2（单位：°）}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|ccc}
+  \toprule
+  $\beta=p-p_{\leftrightarrow}$& $p$& 消光时A度盘读数$a_i$&$\alpha=a_i-a_{\uparrow}$ \\
+  \midrule
+  15.0& 177.2& 156.9& -15.3\\
+  30.0& 192.2& 142.0& -30.2\\
+  45.0& 207.2& 125.7& -46.5\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+\noindent P,A两盘旋转同步，可见此时组成的是全波片，$C_x$的快轴在水平方向。
+\subsubsection*{C.4 \quad 观测线偏振光通过1/4波片}
+\noindent $C_0=179.8°, \quad R=100\Omega$\\
+\noindent $\bf{I_0}$（挡住光源时）$\bf{=-0.009mV}$
+\begin{table}[!htbp]
+  \centering
+  \caption{1/4波片及椭圆偏振光的测定}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \resizebox{0.417\linewidth}{!}
+  {
+  \begin{tabular}{c|ccc}
+  \toprule
+  $\beta=p-p_{\leftrightarrow}$& 22.5°& 45.0°& 67.5° \\
+  \midrule
+  $p$& 184.7°& 207.2°& 229.7°\\
+  $a_i$& 74.4° &36.9° &-3.5°\\
+  $I_{max}$(mV)& 6.225& 3.850& 3.508\\
+  $I_{min}$(mV)& 0.935& 2.607& 0.620\\
+  $\alpha=a_i-a_{\uparrow}$& 97.8°& 135.3°& 175.7°\\
+  $\bf{\psi}$（由$\bf{\alpha}$计算）& 7.8°& 45.3°& 85.7°\\
+  $\frac{b^2}{a^2}\approx \frac{I_{min}}{I_{max}}$& 0.150& 0.677& 0.177\\
+  $\sin{\delta_r}$& 0.953& 0.981& 1.010\\
+  $\delta_r$& 72.36°& 78.90°& 90.00°\\
+  $\bf{\psi}$（由(1.2)式计算）& 8.43° & ——& 0°（90°） \\
+  \bottomrule
+  \end{tabular}
+  }
+  \end{table}
+\clearpage
+由上表可以看出，当$\beta=22.5°$时，$\psi$的测定值与理论间接计算值基本吻合。而$\beta$其余两个取值的情况比较特殊，值得进一步讨论。
+
+当$\beta=45°$时，$\psi$的测定值给出为$45.3°$，但其实由于此时从1/4波片出射的光近似为圆偏振光，\textbf{故$\psi$的理论取值实际上是任意的}。
+
+当$\beta=67.5°$时，$\psi$的测定值为$85.7°$，而理论间接计算值却存在$0°$或$90°$两个允许值，表面上来看是矛盾的。但实际这里不存在物理上的问题，因为\textbf{该多值性实际上是由反正切函数}（见(1.2)式）\textbf{的定义域范围引起的}：$\tan{0°}=\tan{180°}=1$使得$\psi=0°/90°$都符合(1.2)式的条件。考虑到辅助角$\beta=67.5°$，此处的$\psi$值应该取$90°$，可见测定值与理论计算值之间基本吻合，不存在矛盾。
+
+ 
+  
+
+\section{分析}
+
+在本次实验中，我们从多个角度研究了光的偏振现象，包括布氏角的测定、偏振片与波片的特性研究、以及椭圆偏振光的观测等。测量数据表明，实验结果与理论预测基本吻合，同时也发现了一些有趣的问题。
+\textbf{因此，我们对以下实验细节展开讨论：}
+\begin{itemize}
+  \item \textbf{布氏角的观测.}\quad 实验器材中有一张带孔的白纸，其除了可以用作屏观察反射光消光现象外，孔还可用于帮助判断自准直，提高测定精度。另外，激光器发出的本就是近似线偏振光，因此尤应注意在可能的布氏角附近作较大范围的光强探测，排除“假消光”现象干扰后续实验。
+  \item \textbf{马吕斯定律的验证.}\quad 根据理论预测，$(I_{m}-I_{min})/(I_{max}-I_{min})$关于$\theta$的关系图应当近似为$\cos^2{\theta}$的函数图像。而在实际绘图中，我们发现测量值虽然分布趋势大致与理论吻合，但是相较于理论值均存在偏高现象。我们分析可能有以下几点原因：
+  
+  1.实验室的环境背景光/光电池暗电流/噪声/寄生电势/电表零点漂移等，造成探测器测得的数据存在本底信号值，从而造成了系统误差。
+  
+  2.实验中起偏器产生的线偏振光可能不是严格的完全线偏振光，故测得的光强存在非有效值部分。
+  
+  3.在前一部分的实验中未严格调节检偏器P的透射轴水平或A的透射轴与之正交，导致测定曲线存在平移性偏差。但是这一点本身不会影响函数图像的形状。
+
+  4.光路未严格调节至共轴等，导致测量存在系统误差。
+
+  另外需要指出的是，由于本底负值信号的存在，本实验应当用$(I_{min}-I_0)/(I_{max}-I_0)$计算消光比以消除系统误差，而不是$I_{min}/I_{max}$。
+  \item \textbf{线偏振光通过波片组的观测.} \quad 当两个1/4波片组成全波片时，A盘和P盘若初始时调节至正交状态，则此后消光现象的维持要求两盘旋转的同步（任何时刻同方向同角度）。但由于空间上的轴对称性，两盘同步旋转时读数的变化方向是完全相反的，判断时尤当注意。
+  \item \textbf{椭圆偏振光的观测.}\quad 由于辅助角$\beta=45°$时椭圆偏振光会退化为圆偏振光，故此时$\psi$的取值任意，无法由公式得到测定值是自洽的。同样，反三角函数定义域的多种可能也不影响实验结果的合理性。
+\end{itemize}
+\textbf{针对以上实验结果与问题，我们有以下建议：}\\
+\noindent 1.在实验中应当注意消除系统误差，例如在测量光强时应当及时校准零点，减小环境光的干扰等。\\
+\noindent 2. 可以改进实验方法提高布氏角的测定精度，例如利用数字式光强探测头更准确地找到消光方位角等。\\
+\noindent 3.另外，本部分实验内容可以进一步拓展为验证菲涅尔公式。我们可以利用偏振片和波片的组合，通过调节入射角来观察反射光的偏振态变化，从而验证相关理论公式。\\
+\noindent 4.在观测椭圆偏振光时，可以进一步研究椭圆的长短轴方位角$\psi$与光强的关系，以及椭圆偏振光的旋向等性质。\\
+\noindent 5.最后，未来可以在此实验基础上进一步研究非完全偏振光的偏振现象。或者，将偏振态光束应用于干涉或衍射实验中，进一步研究光的波动性质。
+
+
+
+
+\clearpage
+\section{原始数据}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.31]{1.jpg}
+\end{figure}
+
+
+
+\end{document}
