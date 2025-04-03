@@ -1,0 +1,329 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{阻尼振动和受迫振动实验报告}
+\class{物理 32}
+\name{杨泽宇}
+\id{2023011329}
+
+\begin{document}
+\maketitle
+
+\section*{摘要}
+\noindent 本实验借助波耳共振仪探究阻尼振动、受迫振动以及共振的基本规律。实验的主要目的为：
+
+1.观测不同阻尼对简谐振动的影响，了解阻尼振动。
+
+2.分析受迫振动的基本规律，测试幅度——频率特性和相位——频率特性。
+
+3.探究受迫振动的瞬态过程：振动系统在共振频率信号激励下从静止到稳态的过程。\\
+\noindent 实验结果表明：
+    1.阻尼振动的振幅随时间指数衰减，且振动频率不变。
+    2.受迫振动的振幅与相位随频率变化呈现共振现象，与理论预测相符。
+    3.受迫振动的瞬态解衰减得很快，振幅迅速达到稳态值。
+
+
+\section{实验原理}
+\subsection*{A\quad 观测有粘滞阻尼时的阻尼振动规律}
+圆形摆轮和弹簧相连接，构成待测系统。设摆轮转动惯量为J，弹簧劲度系数为k，忽略弹簧等效转动惯量，则摆轮转角$\theta$满足:
+\begin{equation}
+  J\ddot{\theta} + + k\theta = 0
+\end{equation}
+其解为简谐振动形式：
+\begin{equation}
+  \theta = \theta_0 e^{\omega_0 t + \varphi_0}
+\end{equation}
+其中$\theta_0$ 为摆轮的初始振幅，$\omega_0 = \sqrt{\frac{k}{J}}$为系统固有圆频率，$\varphi_0$为初始相位。\\
+当考虑粘滞阻尼时，摆轮受到的阻尼力矩为$M = -\gamma \dot{\theta}$，则摆轮满足微分方程：
+\begin{equation}
+  J\ddot{\theta} + \gamma \dot{\theta} + k\theta = 0
+\end{equation}
+设阻尼系数为$\beta = \frac{\gamma}{2J}$，则上式可化为：
+\begin{equation}
+  \ddot{\theta} + 2\beta \dot{\theta} + \omega_0^2\theta = 0
+\end{equation}
+在欠阻尼情形下，即$\beta < \omega_0$时，该微分方程的解为：
+\begin{equation}
+  \theta = \theta_0 e^{-\beta t+i(\omega_d t+\varphi_0)}, \quad \omega_d = \sqrt{\omega_0^2 - \beta^2}
+\end{equation}
+在其他两种情形下，即$\beta = \omega_0$（临界阻尼）和$\beta > \omega_0$（过阻尼）时，将不会出现振荡解，振幅随时间按照指数规律衰减。
+
+讨论欠阻尼状态。设$ t=nT_d+t_0 $，其中$T_d = \frac{2\pi}{\omega_d}$为摆轮的阻尼振动周期，$t_0$为摆轮的初始相位，则振幅满足$\theta_n=\theta_0e^{-\beta(nT_d+t_0)}$。两边取对数得：
+\begin{equation}
+  \ln\theta_n = \ln\theta_0 -\beta t_0- n(\beta T_d)
+\end{equation}
+利用实验测出$\theta_n $，再对 $ln\theta_n-n$ 进行线性拟合，即可求出$\beta$和$\omega_d$。
+
+
+\subsection*{B\quad 受迫振动基本规律和幅频特性}
+卷形弹簧另一端有圆频率为$\omega$，振幅为$A_D$的简谐信号激励下（设激励源初相位为0），摆轮满足的微分方程变为：
+\begin{equation}
+  \ddot{\theta} + 2\beta \dot{\theta} + \omega_0^2\theta = \omega_0^2A_D\cos(\omega t)
+\end{equation}
+欠阻尼情况，其通解为：
+\begin{equation}
+  \theta = \theta_0 e^{-\beta t}cos(\omega_d t+\varphi_0) + \theta_m\cos(\omega t-\delta)
+\end{equation}
+其中
+\begin{equation}
+\theta_m=\frac{\omega_0^2A_D}{\sqrt{(\omega_0^2-\omega^2)^2+4\beta^2\omega^2}}
+\end{equation}
+为摆轮稳态解振幅，
+\begin{equation}
+\delta=\arctan(\frac{2\beta \omega}{\omega_0^2-\omega^2})
+\end{equation}
+为摆轮的相位滞后。\\
+上两式表明：当$\omega \approx \omega_0$时，摆轮的振幅达到最大值，即共振现象。我们可以改变激励信号的周期，观测摆轮的振幅和相位的频率特性。
+
+\subsection*{C\quad 受迫振动瞬态过程}
+振动系统在共振频率信号激励下从静止到稳态的过程中经历瞬态过程。我们可以通过观测摆轮振幅随时间的变化来了解其规律。
+
+\section{实验仪器及实验步骤}
+
+\subsection{仪器介绍}
+波耳共振仪由振动系统、激励系统、测量系统三部分组成。待测振动系统包括摆轮、弹簧和提供电磁阻力矩的线圈。激励系统包括电机信号源和连杆、摇杆，可以提供不同频率与振幅的激励。测量系统包括振幅显示器、周期显示器（测量对象为“摆轮”或“强迫力”，可选“1”和“10”两档）、相位显示器和闪光灯等，可以测量摆轮振动的各个参数。
+
+“阻尼选择”钮可以调节电磁阻尼大小，“强迫力周期”钮可以调节激励信号频率。按“复位”钮可重启对振幅和周期的测量。
+
+\subsection{实验步骤}
+\subsubsection*{A\quad 观测有粘滞阻尼时的阻尼振动规律}
+\noindent 1.测量最小阻尼时（阻尼开关置于“0”档）的阻尼系数$\beta$。
+
+调整仪器使波耳共振仪处于工作状态；打开振幅测量开关，拨动摆轮使其偏离平衡位置150°-180°后摆动，依此读取50次显示窗中振幅值；周期选择置于“10”位置，按复位键启动周期测量，停止时读取数据（$10T_d$）并立即再次按复位按钮启动周期测量，记录5个数据为止。由$(1.6)$式即可拟合计算阻尼系数及其不确定度$\beta \pm U_{\beta}$。\\
+\noindent 2.用最小阻尼时的阻尼系数$\beta$和振动周期$T_d$计算固有圆频率$\omega_0$。\\
+\noindent 3.测量其他两种阻尼状态下的摆轮的振幅，进行数据处理。
+
+由于有阻尼的情况下摆轮的振动次数少，测量8组以上振幅值数据即可，但应注意尽量使最后一组数据振幅值大于15°（否则误差过大）。此外需要测量4个振动周期，周期选择置于“1”位置，测量后求出对应$\beta \pm U_{\beta}$。\vspace{.2em}
+\subsubsection*{B\quad 受迫振动基本规律和幅频特性}
+开启电机开关，开关置于“强迫力”，周期选择置于“1”，调节强迫激励周期旋钮以改变电机运动圆频率$\omega$。选择两个不同的阻尼系数（与$\rm{A_3}$中保持一致），测定幅频曲线和相频曲线并绘图。
+
+注意：1.阻尼不应选择“0”，“1”两档测量，以免损伤弹簧。2.每次调节电机状态后应等待摆轮振动稳定后再进行测量。3.要求每条曲线至少有15个数据点，测试周期范围为$0.93T_0-1.07T_0$。
+\subsubsection*{C\quad 受迫振动瞬态过程}
+\noindent 1.选择$\rm{A_3}$部分测试中一个非“0”的阻尼，设置电机频率与摆轮——弹簧系统的固有圆频率相同，关闭电机且使摆轮尽可能静止。
+
+\noindent 2.再次打开电机开关，使摆轮从静止状态开始振动，测试并记录受迫振动瞬态过程的振幅，直到达到稳态。
+
+\noindent 3.绘出摆轮振幅随时间变化的曲线，并与受迫振动瞬态过程的振幅理论值相比较。
+
+
+
+
+\section{数据处理}
+
+\subsection*{A\quad 观测有粘滞阻尼时的阻尼振动规律}
+
+\subsubsection*{A.1\quad 测量最小阻尼时的阻尼系数$\beta$}
+\noindent 周期选择开关为“1”或“10”时，周期不确定度分别约定为0.002s或0.0002s。
+
+\begin{table}[!htbp]
+  \centering
+  \caption{依序测量的50个振幅（单位：°）}\vspace{0.7em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{cc|cc|cc|cc|cc}
+  \toprule
+  序号& 振幅& 序号& 振幅& 序号& 振幅& 序号& 振幅& 序号& 振幅 \\
+  \midrule
+  1& 147& 11& 137& 21& 126& 31& 117& 41& 108\\
+  2& 146& 12& 136& 22& 125& 32& 116& 42& 107\\
+  3& 145& 13& 135& 23& 124& 33& 115& 43& 106\\
+  4& 144& 14& 134& 24& 124& 34& 114& 44& 105\\
+  5& 143& 15& 132& 25& 123& 35& 113& 45& 104\\
+  6& 142& 16& 132& 26& 122& 36& 113& 46& 103\\
+  7& 141& 17& 131& 27& 121& 37& 112& 47& 103\\
+  8& 140& 18& 130& 28& 120& 38& 111& 48& 102\\
+  9& 139& 19& 128& 29& 119& 39& 110& 49& 101\\
+  10& 138& 20& 127& 30& 118& 40& 109& 50& 100\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+    
+\begin{table}[h]
+  \caption{$10\bar{T_d}$的测量（单位：s）} \vspace{0.7em}
+  \centering
+  \begin{tabular}{cccccccccc}
+    \hline
+    序号& 1& 2& 3& 4& 5\\
+    $10\bar{T_d}$& 15.812 & 15.808 & 15.808 & 15.805 & 15.807 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\noindent 由此作$ln\theta_n-n$最小二乘法拟合，结果为：
+\begin{equation}
+  b_0=5.0108 ,\quad b_1=-\beta=-0.0051,\quad s_{b_1}=6.6\times 10^{-5}, \quad U_{A,b_1}=2.1\times 10^{-4}. \notag
+\end{equation}
+\textbf{$\beta$测量值：}$\bar{\beta}\pm U_{\beta}= 0.0051 \pm 0.0002s^{-1}.$
+
+\subsubsection*{A.2\quad 用最小阻尼时的阻尼系数$\beta$和振动周期$T_d$计算固有圆频率$\omega_0$}
+\begin{equation}
+  \omega_0=\sqrt{(2\pi/T_d)^2+\beta^2}=\sqrt{3.9747^2+0.0051^2}\approx 3.9747s^{-1}. \notag
+\end{equation}
+可见阻尼很小的情况下，可以用$\omega_d$近似代替$\omega_0$。
+
+
+\subsubsection*{A.3\quad 测量其他两种阻尼状态下的摆轮的振幅}
+\begin{table}[!htbp]
+  \centering
+  \caption{阻尼为“2”、“4”时振幅及振幅数据（单位：°）}\vspace{1em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{ccc|ccc}
+  \toprule
+  阻尼2& 振幅（°）& 周期（s）& 阻尼4& 振幅（°）& 周期（s）\\
+  \midrule
+  1& 171& 1.580& 1& 142& 1.581 \\
+  2& 134& 1.581& 2& 119& 1.583 \\
+  3& 121& 1.582& 3& 101& 1.583 \\
+  4& 111& 1.583& 4& 86& 1.583 \\
+  5& 101&  & 5& 72&   \\
+  6& 91&  & 6& 61&  \\
+  7& 83&  & 7& 52&  \\
+  8& 75&  & 8& 45&  \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+\noindent 由此分别作$ln\theta_n-n$最小二乘法拟合，结果为：
+\begin{equation}
+    b_0=5.1641 ,\quad b_1=-\beta_2=-0.0686,\quad s_{b_1}=0.00451, \quad U_{A,b_1}=1.1\times 10^{-2}. \notag
+  \end{equation}
+\textbf{$\beta_2$测量值：}$\bar{\beta_2}\pm U_{\beta_2}= 0.07 \pm 0.01s^{-1}.$  
+\begin{equation}
+  b_0=5.112 ,\quad b_1=-\beta_4=-0.1045,\quad s_{b_1}=0.00095, \quad U_{A,b_1}=2.3\times 10^{-3}. \notag
+\end{equation}
+\textbf{$\beta_4$测量值：}$\bar{\beta_4}\pm U_{\beta_4}= 0.105 \pm 0.002s^{-1}.$  
+
+\subsubsection*{A.4\quad 各阻尼状态品质因数计算}
+  $Q_0=\frac{\omega_0}{2\beta}=\frac{3.9747}{2\times 0.0051}\approx 390.0, \quad
+  Q_2=\frac{\omega_0}{2\beta_2}=\frac{3.9747}{2\times 0.0686}\approx 29.0, \quad Q_4=\frac{\omega_0}{2\beta_4}=\frac{3.9747}{2\times 0.1045}\approx 19.0. \notag$\\
+
+可见振动系统的阻尼越小，品质因数越高，振动持续时间越长。
+
+\subsection*{B\quad 受迫振动基本规律和幅频特性}
+
+\subsubsection*{B.1,2\quad 共振状态判断}
+由$(1.9),(1,10)$两式知：系统共振频率$\omega=\omega_0$，共振振幅$\theta_m=\frac{\omega_0 A_D}{2\beta}$，共振相位$\delta=\frac{\pi}{2}$。受迫振动开始后，若连续三次振幅测量值相同，则可判定振动进入稳态。
+
+
+\subsubsection*{B.3\quad 测试幅频特性和相频特性}
+
+\begin{table}[!htbp]
+  \centering
+  \caption{阻尼为“2”时振幅及相位测量}\vspace{1em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{ccc|ccc|ccc}
+  \toprule
+  周期（s）& 振幅（°）& 相位（°）& 周期（s）& 振幅（°）& 相位（°）& 周期（s）& 振幅（°）& 相位（°）\\ 
+  \midrule
+  1.481& 26& 167.0& 1.566& 110& 128.5& 1.589& 131& 73.0\\
+  1.488& 28& 166.5& 1.571& 121& 119.5& 1.593& 125& 67.0\\
+  1.494& 30& 166.0& 1.574& 130& 110.0& 1.599& 113& 56.5\\
+  1.506& 34& 164.5& 1.577& 134& 104.0& 1.608&  96& 45.5\\
+  1.515& 39& 163.5& 1.579& 137&  98.5& 1.623&  72& 33.0\\
+  1.524& 45& 162.0& 1.581& 138&  93.0& 1.636&  59& 26.0\\
+  1.535& 54& 157.5& 1.582& 138&  90.5& 1.652&  46& 21.0\\
+  1.541& 60& 154.5& 1.583& 138&  87.5& 1.668&  39& 17.0\\
+  1.554& 80& 145.0& 1.584& 137&  85.0& 1.680&  35& 15.5\\
+  1.562& 98& 136.0& 1.586& 137&  81.5& 1.695&  31& 14.0\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+
+\begin{table}[!htbp]
+  \centering
+  \caption{阻尼为“4”时振幅及相位测量}\vspace{1em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{ccc|ccc|ccc}
+  \toprule
+  周期（s）& 振幅（°）& 相位（°）& 周期（s）& 振幅（°）& 相位（°）& 周期（s）& 振幅（°）& 相位（°）\\ 
+  \midrule
+  1.486& 26& 159.0& 1.576& 81& 105.0& 1.590& 84& 83.5\\
+  1.516& 37& 153.5& 1.579& 83& 100.0& 1.593& 82& 79.5\\
+  1.530& 45& 148.0& 1.581& 84&  97.0& 1.596& 80& 74.0\\
+  1.542& 53& 143.5& 1.582& 84&  95.0& 1.600& 78& 68.5\\
+  1.558& 65& 127.0& 1.583& 84&  93.0& 1.622& 61& 47.0\\
+  1.567& 74& 118.0& 1.584& 84&  91.0& 1.660& 39& 28.5\\
+  1.573& 79& 110.0& 1.586& 84&  89.0& 1.699& 28& 20.5\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+\subsubsection*{B.4\quad 绘制特性曲线}
+
+\includegraphics[scale=0.5]{9.png}
+
+\includegraphics[scale=0.5]{10.png}
+
+
+\subsubsection*{B.5\quad 品质因数计算}
+由前式知，从幅频特性曲线中也可得到振动系统的品质因数$Q$:
+\begin{equation}
+  Q \approx \frac{\omega_r}{|\omega_{+}-\omega_{-}|}. \notag
+\end{equation}
+其中$\omega_r$为图中读得的共振频率，$\omega_{+}$和$\omega_{-}$分别为共振频率两侧的半功率点频率。由图可以计算：
+\begin{equation}
+  Q_2 \approx \frac{3.969}{4.015-3.905}=36.0, \quad Q_4 \approx \frac{3.967}{4.055-3.855} \approx 19.8. \notag
+\end{equation}
+与前$(A.4)$中结果比较，数值基本吻合，但此过程测得的值偏大。
+
+
+\subsection*{C\quad 受迫振动瞬态过程}
+
+\subsubsection*{C.1\quad 测量瞬态过程的振幅并绘图}
+\begin{table}[!htbp]
+  \centering
+  \caption{阻尼2下振幅随时间变化数据（单位：°）}\vspace{1em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{cc|cc|cc|cc|cc|cc}
+  \toprule
+  序号& 振幅& 序号& 振幅& 序号& 振幅& 序号& 振幅& 序号& 振幅& 序号& 振幅\\
+  \midrule
+  1&   8& 11&  84& 21& 118& 31& 131& 41& 137& 51& 139\\
+  2&  19& 12&  89& 22& 120& 32& 132& 42& 137& 52& 139\\
+  3&  29& 13&  93& 23& 122& 33& 133& 43& 138& 53& 139\\
+  4&  38& 14&  97& 24& 123& 34& 133& 44& 138& 54& 139\\
+  5&  46& 15& 101& 25& 125& 35& 134& 45& 138& 55& 139\\
+  6&  54& 16& 104& 26& 125& 36& 135& 46& 138& 56& 139\\
+  7&  61& 17& 107& 27& 127& 37& 135& 47& 138& 57& 140\\
+  8&  67& 18& 110& 28& 128& 38& 136& 48& 138& 58& 140\\
+  9&  73& 19& 113& 29& 129& 39& 136& 49& 139& 51& 140\\
+  10& 79& 20& 115& 30& 130& 40& 137& 50& 139& 60& 140\\
+  \bottomrule
+  \end{tabular}
+  \end{table}  
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.32]{11.png}
+\end{figure}
+
+\noindent 将实验步骤里的初值条件代入$(1.8)$式，可得到摆轮的振动随时间变化的理论预测为：
+\begin{equation}
+  \theta(t) = \frac{\omega A_D}{2\beta}\left(\sin(\omega t)-\frac{\omega}{\omega_d}\sin({\omega_d t})e^{-\beta t}\right). \notag
+\end{equation}
+由$\beta<<\omega_0$,可作近似$\omega_d \approx \omega_0$，即：\\
+\begin{equation}
+  \theta(t) \approx \frac{\omega A_D}{2\beta}\sin\omega t(1-e^{-\beta t}), \quad 振幅\Theta(t)=\theta_m(1-e^{-\beta t}). \notag
+  \end{equation}
+
+\noindent 将理论预测值与实验数据拟合结果相比，可以看出二者基本吻合。
+
+\section{讨论}
+
+在本次实验中，我们研究了阻尼振动和受迫振动特性，并加深了对于共振现象、瞬态过程等现象的了解。实验中发现的主要问题如下：
+\begin{itemize}
+  \item 在受迫振动观测中，摆轮振幅和相位的测量存在一定的误差，这是由于实验中摆轮的振动可能不是严格的简谐振动，实验仪器精度有限，且相位的读数存在较大观测误差。
+  \item 实验中测量的阻尼振动的振荡周期数据点较少，导致对阻尼系数的测量精度不高。
+  \item 在阻尼振动过程中，振动周期会逐渐增大，这可能是因为振动的幅度减小，受到空气阻力等外界条件影响较大。
+  \item 两种方法计算得到的品质因数不同，后者测得的值偏大。
+  \item 在受迫振动瞬态过程中，实验数据与理论预测值变化趋势基本吻合，但理论值曲线的斜率较陡，表明测量存在一定系统误差。
+\end{itemize}
+针对这些问题，我们有以下建议：
+
+\noindent 1. 在受迫振动观测中，可以尝试使用更加精密的测量仪器，如数字示波器等，以提高计数精度。\\
+\noindent 2. 在阻尼振动测量过程中，若期望更高的精度，可考虑使用真空装置进行实验，以期减小外界条件对振动的干扰。\\
+\noindent 3.可进一步考虑妥善的数据处理方式，来减小阻尼振动周期变动对阻尼系数测量的影响。\\
+\noindent 4.可进一步探究两种方法计算得到的品质因数不同的原因。\\
+\noindent 5.针对理论曲线与实验曲线存在的差异，可以考虑进一步测量其他阻尼下的情况，或者调节激励信号源周期离开，在系统共振频率外进行测量，进一步探究其规律。\\
+
+\section{原始数据}
+
+
+
+
+\end{document}

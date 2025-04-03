@@ -1,0 +1,371 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{耦合摆实验报告}
+\class{物理 32}
+\name{杨泽宇}
+\id{2023011329}
+
+\begin{document}
+\maketitle
+
+\section*{摘要}
+本实验以耦合摆为研究对象，先利用数字示波器FFT功能对耦合摆的运动进行频谱分析，确定了其固有频率. 然后测试了耦合摆在固有频率驱动力下的振动模式，通过拟合计算波长并验证了色散关系. 最后测试了耦合摆在带外频率激励下的振动特性，计算了衰减系数并与理论值比较，结果吻合较好.
+\section*{一\quad 实验原理}
+考虑图$1(a)$所示的与弹簧耦合的单摆. 在小位移范围内，摆球的运动可视为简谐振动，其角频率为：
+\begin{equation}
+  \omega_0=\sqrt{\frac{g}{L}+\frac{K}{m}} \equiv \sqrt{\omega_p^2+\omega_s^2} \tag{1}
+\end{equation}
+其中$\omega_p=\sqrt{g/L}$为单摆的固有角频率，$\omega_s=\sqrt{K/m}$为弹簧振子的固有角频率.
+
+再来考虑图$1(b)$所示的双耦合摆. 通过计算，可以确定系统的固有角频率为：
+\begin{equation}
+  \omega_1=\omega_p, \quad \omega_2=\sqrt{\omega_p^2+2\omega_s^2} \tag{2}
+\end{equation}
+这两个角频率各自对应于系统的一个简正模式. 同样地，我们可以确定三耦合摆的固有频率为$\omega_1=\omega_p$，$\omega_2=\sqrt{\omega_p^2+\omega_s^2}$及$\omega_3=\sqrt{\omega_p^2+3\omega_s^2}$，它们各自对应于一种简正模式.
+
+一般地，我们可以将以上分析推广到$N$耦合摆系统. 根据$N=1\sim 3$的结果，我们推测：\textbf{$N$耦合摆具有$N$个固有频率$\omega_k$和$N$个振动模式，对应的模数分别为$\kappa=0\sim N-1$. }
+\noindent 通过对$N=1,2,3,\cdots$一系列系统的进一步计算，我们推测第$n$个摆球的振幅$x_k(n)$与模数$\kappa$的关系为：
+\begin{equation}
+  x_k(n,N)=\displaystyle\frac{\sin(\pi\kappa\frac{n-n_0}{N})}{\sqrt{\sum_{n=1}^N\sin^2(\pi\kappa\frac{n-n_0}{N})} }\tag{3}
+\end{equation}
+其中$n_0$为振幅为$0$的节点位置. 由上式还可以求得模数$\kappa$对应的波数$k=\pi\kappa/N$和波长$\lambda=2N/\kappa$.
+\begin{figure}[htbp]
+  \centering
+   \subfloat[耦合弹簧的单摆]
+   {\includegraphics[width=0.19\textwidth]{1.1.png}}
+   \qquad
+   \subfloat[双耦合摆]
+   {\includegraphics[width=0.17\textwidth]{1.1-2.png}}
+   \qquad
+   \subfloat[三耦合摆]
+   {\includegraphics[width=0.25\textwidth]{1.1-3.png}}
+   \caption*{图$1.\quad$耦合摆}
+  \end{figure}
+\clearpage
+考虑$N$耦合摆中各摆球的动力学方程，并代入(4)式对应的简振解，可以计算得到色散关系：
+\begin{equation}
+  \omega=\sqrt{\omega_p^2+4\omega_s^2\sin^2\left(\frac{k}{2}\right)}=\sqrt{\omega_p^2+4\omega_s^2\sin^2\left(\frac{\pi\kappa}{2N}\right)}\tag{4}
+\end{equation}
+由上可知存在耦合摆的固有频存在上下限，其中下限频率为$\omega_{min}=\omega_p$. 通带频率之外的$k$无实数解，相应的振动会随着向前传输而衰减.若我们定义：
+\begin{equation}
+  \cos k=1+\frac{\omega_p^2-\omega^2}{2\omega_s^2}\equiv C\tag{5}
+\end{equation}
+则对于通带频率以外的情形，经计算可知各摆球的振动可以表为：
+\begin{equation}
+  x_n(t)=A_k (C-\sqrt{C^2-1})^n e^{i(\omega t+\varphi_0)}\tag{6}
+\end{equation}
+其中$C-\sqrt{C^2-1}$为衰减系数，刻画了摆球振幅随摆链传播的衰减速度.
+\section*{二\quad  实验仪器及实验内容}
+\subsection*{1.\quad 实验仪器}
+ \ding{192} 耦合摆:由 $N=15$ 个相同摆长和相同摆球质量的单摆等距排列、通过劲度系数相同的弹簧连接而成；
+ \ding{193} 耦合摆实验仪，包括功率放大器和位置检测器（PSD）信号处理模块； \ding{194} 信号源（泰克 AFG1022）；\ding{195} 数字示波器（RIGOL DS1102E）; \ding{196} 小锤子，BNC 接头连接线等.
+\subsection*{2.\quad 实验步骤}
+\subsubsection*{B.1\quad 测试耦合摆的固有频率}
+用小锤向左轻击最右端的摆球使耦合摆开始振动，缓慢移动PSD至某一摆球处，利用示波器测试其位移随时间的变化. 通过示波器的FFT功能进行频谱分析，测试耦合摆的固有频率$f$，共测量10组数据.\\
+
+\noindent \textbf{B.2} 已知耦合摆中弹簧劲度系数$K=18.9\mathrm{N/m}$，摆长$L=0.500\mathrm{m}$，摆球质量$m=0.148\mathrm{kg}$，利用以上参数计算$\omega_p$和$\omega_s$的理论值，再由(4)式计算$f=\frac{\omega}{2\pi}$的理论值，并与B.1的测试结果比较.
+\subsubsection*{B.3\quad 测试并验证耦合摆的色散关系}
+从B.1测得的固有频率谱中选取4个处于1Hz~3.2Hz范围内的频率值，测试并计算耦合摆被这4个固有频率信号激励且振动达到稳定稳定状态时的波长$\lambda$.
+
+\noindent \textbf{具体步骤}：
+
+ 1.测定各摆球的振幅（注意判断正负号）.
+
+ 2.以摆球序号$n$为自变量，振幅$x_n$为因变量，作三角函数拟合并求出波数$k$及波长$\lambda$. 拟合函数为$x=A\sin(kn-\varphi)$，利用Matlab等软件拟合并作图.
+
+ 3.利用(4)式作直线拟合，验证色散关系；同时计算$\omega_p$和$\omega_s$的值，并与B.2中得到的理论值比较.
+\subsubsection*{C.1\quad 带外频率的波的振动特性测定}
+\noindent 1.选取低于$\omega_{min}$的1个频率（高于 0.6 Hz），对耦合摆 0 号摆球施加激励信号，观察振动在摆链
+中的传播情况，并测试各个摆球的振幅.\\
+\noindent 2.画出摆球振幅—摆球序号关系图，利用(6)式做直线拟合求出衰减系数$C-\sqrt{C^2-1}$，再
+计算出$C$的实验值.
+\noindent 3.由(5)式计算$C$的参考值（其中$\omega_p$和$\omega_s$使用 B.3的拟合结果），并与实验值相比较.
+
+\clearpage
+\section*{三\quad 数据处理}
+
+\subsection*{B.1\quad 测试耦合摆的固有频率}
+ 
+\begin{table}[!htbp]
+  \centering
+  \caption{耦合摆固有频率$f$的测定（单位：Hz）}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|cccccccccc|c}
+  \toprule
+   $f$序号& 球1& 球2& 球4& 球5& 球7& 球8& 球10& 球12& 球13& 球14& $\bar{f}$\\
+  \midrule
+   1&0.72 	& 0.74 	& 0.74 & 	0.74 &	0.74 &	0.74 &	0.74 &	0.73 &	0.73 &	0.75& 0.74\\
+   2&	      &0.82   &	0.82 & 	0.82 & 	0.81 &	0.82 &	0.82 &	0.82 &       &      &  0.82 \\
+   3&1.02 	&1.00 	&1.02  &	1.02 &	     &  1.02 &  1.00 &  1.02 &  1.03 &  1.03 &1.02 \\
+   4&1.27 	&1.28 	&1.26  &		   &1.28 	 &1.28 	 &1.00 	 &  1.28 &	1.27 &	1.28& 1.28   \\
+   5&1.56 	&1.56 	&1.56  &1.55 	 &1.57 	 &1.58 	 &1.58 	 &       &1.56 	 &1.57& 1.57\\
+   6&       &	1.84 	&1.76  &1.85 	 &1.86 	 &       &1.86   &   		 &1.79 	 &   &  1.83 \\
+   7&2.14 	&	       &2.14 	&2.13 	 &  2.18 	 & 2.15 	&	    &    2.12 &	2.14 &	  2.15& 2.14 \\
+   8&2.37 	&2.38 	&2.40  &2.39 	 &2.38 	 &2.40 	&        &       	&2.39 	&& 2.39 \\
+   9&2.60 	&2.50 	&2.64 	&	&2.61 	&2.62 	& &	2.62 	&2.63 &	2.63& 2.61    \\
+  10&2.86 	&	&	&	&2.87 	&2.88 	&2.88 	&2.88 	&2.88 	& &  2.88 \\
+  11& &	 &	3.04 &		&3.05 	&3.05 	&	&	&3.06 	&3.06 & 3.05 \\
+  12& & &	3.34 	&3.33 &	3.30 	& &	 &	 & &	3.33&  3.32 \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+\noindent 实验采取了移动PSD至不同摆球处敲击测定的方法，表中数据空缺代表未测定到该频率.
+\subsection*{B.2 固有频率理论值与实验值比较}
+\noindent 根据实验仪器参数，可以得到：
+\begin{equation*}
+  \omega_p=\sqrt{\frac{g}{L}}=\sqrt{\frac{9.8}{0.500}}\mathrm{Hz}=4.43\mathrm{Hz},\quad \omega_s=\sqrt{\frac{K}{m}}=\sqrt{\frac{18.9}{0.148}}\mathrm{Hz}=11.30\mathrm{Hz}
+\end{equation*}
+代入(4)式计算可得固有角频率$\omega$的各理论值. 结合B.1测定的固有频数据，我们将找到的12个固有频率$f$与理论值进行对应并计算相对误差，结果如下表所示：\\
+\begin{table}[!htbp]
+  \footnotesize
+  \centering
+  \caption{固有频率$f$理论值与实验值的比较（单位：Hz）}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|ccccccccccccccc}
+  \toprule
+   $\kappa$& 0&1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 13& 14\\
+  \midrule
+    $f_{\text{理论值}}$& 0.705 &0.799& 1.028& 1.316& 1.624 &1.932 &2.229 &2.508 &2.764 &2.994 &3.194 &3.361 &3.493 &3.588& 3.646\\
+    $f_{\text{实验值}}$& 0.74  &0.82 & 1.02 & 1.28 & 1.57  &1.83  &2.14  &2.39  &2.61  &2.88  &3.05  &3.32  & ——     & ——   & ——  \\
+    $\Delta f/f_{\text{理}}$& +5.0\% &+2.6\% & -0.8\% & -2.7\% & -3.3\% & -5.3\% & -4.0\% & -4.4\% & -5.6\% & -3.8\% & -4.5\% & -1.2\% & —— & —— & ——\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+由上表可见，实验测定值与参考值的相对误差均在$\pm 6\%$以内，与理论吻合良好. 可以发现，固有频的测定值大部分偏小，我们分析可能有以下原因：
+\begin{itemize}
+  \item \textbf{未考虑耗散的影响.}  当考虑阻尼$\beta$时，系统的色散关系应修正为：
+  \begin{equation*}
+    \omega_N(\kappa)=\sqrt{\omega_p^2-\beta^2+4\omega_s^2\sin^2\left(\frac{\pi\kappa}{2N}\right)}
+  \end{equation*}
+  可见阻尼会使系统的固有频率变小. 实验中很多因素会起到等效阻尼的作用，如空气阻力，支架/桌面的振动等（耦合摆的一部分能量会通过支架传递到桌面耗散掉，这相当于引入了额外的阻尼）.\\
+  \item \textbf{等效质量的忽略.} 实验忽略了弹簧的质量，这意味着实际的$\omega_s$比理论值要小，从而使得固有频率$\omega$偏小. 同时，也忽略了金属薄片摆臂的振动，以及耦合摆带动支架/桌面的振动，这些现象亦会带来附加的等效质量.
+  \item \textbf{摆角幅度过大.} 由于敲击方式的原因，测试部分摆球的振动时，初始时段系统的振幅偏大. 此时小角度近似或许不再适用，而应考虑二阶近似$\sin\theta\approx\theta-\theta^3/6$，则单摆角频率$\omega_p$需修正为：
+  \begin{equation*}
+    \omega_p'=\omega_p \left(1-\frac{\theta_{max}^2}{16}\right)
+  \end{equation*}
+  其中$\theta_{max}$为摆球角振幅. 而由色散关系，系统的固有频率会相应减小.
+\end{itemize}
+\subsection*{B.3 测试并验证耦合摆的色散关系}
+ 判断\textbf{达到稳定}的方法： 调整激励频率与Vpp值后等待10分钟左右，当示波器上的波形基本保持为正弦波，各扫描周期读得的幅值基本不变，观察耦合摆发现振动模式已稳定有规律时，即可认为系统达到稳态.
+
+ 判断\textbf{振幅正负号}的方法： 直接按序号从小到大依次观察稳态时相邻摆球的相对振动，如果振动反向则在下一个摆球的振幅前添加一个负号，否则符号保持不变.\\
+\begin{table}[!htbp]
+  \small
+  \centering
+  \caption{固有频激励下稳态摆球振幅$x$与序号$n$的关系（单位：mV）}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|cccc}
+  \toprule
+   $n$& $f_1=1.02$Hz	&	$f_2=1.275$Hz	&	$f_3=1.565$Hz		&$f_4=2.387$Hz\\
+  \midrule
+   0& 1200	&	348	&	648	&	236\\
+    1& 984	&	212	&	212	&	-204\\
+    2& 620	&	-50	&	-400	&	-254\\
+    3& 112	&	-246	&	-720	&	158\\
+    4& -464	&	-364	&	-598	&	292\\
+    5& -856	&	-332	&	-96	&	-94\\
+    6& -1160	&	-206	&	520	&	-306\\
+    7& -1270	&	48	&	742	&	40\\
+    8& -1200	&	278	&	544	&	334\\
+    9& -864	&	384	&	-128	&	86\\
+    10& -424	&	376	&	-656	&	-322\\
+    11& 184	&	228	&	-736	&	-150\\
+    12& 688	&	-52	&	-384	&	316\\
+    13& 1040	&	-248	&	272	&	204\\
+    14& 1150	&	-352	&	664	&	-260\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+在Matlab中对上表数据作三角函数$x=a\sin(bn+c)$拟合（如图2所示，见下页），由(3)式可知得到的拟合系数$b$即为各固有频率对应的波数$k$，同时由此可确定模数$\kappa$及波长$\lambda$. 我们将利用(4)式作直线拟合，相关数据如下表所示：\\
+\begin{table}[!htbp]
+  \small
+  \centering
+  \caption{各固有频率$f$对应的参数值}\vspace{0.3em} \label{tab:aStrangeTable}%添加标题 设置标签
+  \begin{tabular}{c|cccccc}
+  \toprule
+   $f$& $k$& $\lambda$& $\kappa$& $\omega$ (Hz)&$\omega^2$ ($\mathrm{s^{-2}}$)& $\sin^2(\pi\kappa/2N)$\\
+  \midrule
+   $f_1$& 0.4167& 15.08& 1.990&   6.409      &41.073    & 0.0428\\
+    $f_2$& 0.6265& 10.03& 2.991&  8.011     &64.177     & 0.0950\\
+    $f_3$& 0.8372& 7.50&  3.997&  9.833    &96.692      &0.1652\\
+    $f_4$& 1.4588& 4.31& 6.965&   14.998    &224.939    & 0.4441\\ 
+  \bottomrule
+  \end{tabular}
+  \end{table}
+\clearpage
+\begin{figure}[htbp]
+  \centering
+  \subfloat[$f_1=1.02$Hz]
+  {\includegraphics[width=0.45\textwidth]{1.png}}
+  \quad    
+  \subfloat[$f_2=1.275$Hz]
+  {\includegraphics[width=0.45\textwidth]{2.png}}
+  \quad
+  \subfloat[$f_3=1.565$Hz]
+  {\includegraphics[width=0.45\textwidth]{3.png}}
+  \quad
+  \subfloat[$f_4=2.387$Hz]
+  {\includegraphics[width=0.45\textwidth]{4.png}}
+  \caption*{图$2.\quad $各固有频率激励下摆球振幅$x$与序号$n$关系拟合曲线图（单位：mV）}
+\end{figure}
+
+\noindent 根据色散关系$\omega^2=\omega_p^2+4\omega_s^2\sin^2(\pi\kappa/2N)$，我们可以对$\omega^2$—$\sin^2(\pi\kappa/2N)$作直线拟合，结果如图3所示：\\
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=0.4]{5.png}
+  \caption*{图$3.\quad $色散关系直线拟合图}
+\end{figure}
+
+\noindent \textbf{拟合系数：} 直线斜率$k_1=459.008 \mathrm{s^{-2}}$，截距$b_1=20.990 \mathrm{s^{-2}}$. 故由色散关系可求得：
+\begin{equation*}
+  \omega_p=\sqrt{b_1}=4.58\mathrm{Hz},\quad \omega_s=\frac{\sqrt{k_1}}{2}=10.71\mathrm{Hz}
+\end{equation*}
+与B.2中求得的参考值比较，$\omega_p$的相对误差为$+3.4\%$，$\omega_s$的相对误差为$-5.2\%$，与理论吻合较好.
+\clearpage
+\subsection*{C.1 带外频率的波的振动特性测定}
+\noindent 激励源频率：0.600Hz \quad  设定激励峰峰值：Vpp=200mV\\
+\begin{table}[!htbp]
+  \small
+  \centering
+  \caption{带外频率激励下各摆球振幅数据}\vspace{0.3em} \label{tab:aStrangeTable}
+  \begin{tabular}{c|ccccccccccccccc}
+  \toprule
+  $n$& 0&1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 13& 14\\
+  \midrule
+  $x$(mV)&     572&    484&   408& 336&     270& 220& 196& 174& 154& 138& 124& 116  & 110&  105& 101\\
+  $\ln x$(V)& -0.56& -0.73& -0.90& -1.09 & -1.31& -1.51&-1.63& -1.75& -1.87& -1.98& -2.09& -2.15 & -2.21&  -2.25& -2.29\\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+\noindent  根据上表数据，在Matlab中作折线图如下：
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=0.5]{6.png}
+    \caption*{图$4.\quad $带外频率激励下摆球振幅$x$随序号$n$变化的曲线图}
+  \end{figure}
+
+\noindent 保留(6)式的振幅部分并对等式两边取对数，可得$\ln x_n=n\ln\Big(C-\sqrt{C^2-1}\Big)+\ln A_k$.
+由此可对$\ln x_n$—$n$作直线拟合，结果如下：\\
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=0.5]{7.png}
+  \caption*{图$5.\quad$ $\ln x_n$—$n$直线拟合图}
+\end{figure}
+
+\noindent \textbf{拟合系数：} 直线斜率$k_2=-0.1269$.由此可计算衰减系数及$C$的值：
+\begin{equation*}
+  C-\sqrt{C^2-1}=e^{k_2}=0.881,\quad    C=1.008
+\end{equation*}
+而由(5)式给出的$C$的参考值为：
+\begin{equation*}
+  C_0=1+\frac{\omega_p^2-\omega^2}{2\omega_s^2}=1+\frac{4.58^2-0.6^2}{2\times 10.71^2}=1.090
+\end{equation*}
+比较实验值与参考值，相对偏差为$-7.5\%$，结果与理论值吻合较好.
+\clearpage
+\section*{四\quad 讨论}
+\subsection*{1.\quad 思考题}
+\noindent \textbf{Q1.\quad 能否建立一个谐振子模型，预测狐狸/兔子比值多少能达到平衡，并分析哪些量需要实际观测/测量?}\\
+
+设兔子的种群数量为$U(t)$，狐狸的种群数量为$V(t)$.
+
+作为简化，我们先来考虑不存在捕食链的情形，此时兔子和狐狸的种群数量各自独立演化. 由于自然界中兔子的繁殖速度很快，在缺少天敌的情形下种群数量呈现指数型增长，故可将其演化方程表为：
+\begin{equation}
+  \frac{dU}{dt}=\alpha U \quad(\alpha>0) \notag
+\end{equation}
+而狐狸的繁殖速度很慢，且在在缺少猎物的情况下自然死亡率会很高，故可将其种群数量演化方程表为：
+\begin{equation}
+  \frac{dV}{dt}=-\beta V \quad (\beta>0) \notag
+\end{equation}
+再来考虑捕食行为对上式的修正. 由于捕食体现的体现的是种群相互作用的影响，在简单近似下可以认为变化率的修正项与兔子/狐狸种群数量的乘积成正比，即：
+\begin{equation}
+\begin{cases}
+  \displaystyle\frac{dU}{dt}=\alpha U-\gamma UV \vspace*{0.5em}\notag \\
+ \displaystyle \frac{dV}{dt}=-\beta V+e\gamma UV \notag
+\end{cases}
+\end{equation}
+其中$\gamma>0$为捕食率，$0<e<1$为狐狸捕食兔子后的繁殖转化率. 该方程组被称作\textbf{Lotka-Volterra方程}.\\
+
+令$\displaystyle\frac{dU}{dt}=\displaystyle\frac{dV}{dt}=0$，则可得到兔子/狐狸的\textbf{比值平衡点}（不考虑$U=V=0$的平庸情形）：
+\begin{equation}
+    U^*=\displaystyle\frac{\beta}{e\gamma},\quad V^*=\displaystyle\frac{\alpha}{\gamma} \notag
+\end{equation}
+由此可见，在Lotka-Volterra模型下，通过实际观测$U(t)$和$V(t)$的变化并进行拟合分析，我们便可以确定$\alpha/\gamma$以及$\beta/e\gamma$两个相对比值，从而预测兔子/狐狸的比值平衡点.\\
+
+\noindent \textbf{Q2.\quad 为什么这些现象可以用谐振子模型描述，观测量是什么?}\\ 
+
+谐振子模型的本质是系统在稳定平衡态附近作微幅振荡时一种合理的线性近似. 假设某个系统的性质可由单变量函数$V(q)$来刻画，则在$V(q)$极小值附近将其展开，可得：
+\begin{equation}
+  V(q)=V(q_0)+\displaystyle\frac{1}{2}k(q-q_0)^2 +\mathcal{O}\Big( (q-q_0)^3 \Big) \notag
+\end{equation}
+若认为$\mathcal{O} \Big( (q-q_0)^3 \Big)$可以忽略，则系统的“等效势能”$V(q)$便具有谐振子的形式，从而系统的微幅波动遵循谐振子的运动规律.以下来具体分析：\\
+
+\noindent \textbf{1.萤火虫的同步闪烁：}萤火虫群体通过光信号相互“耦合”，最终实现相位锁定同步闪烁，这类似于耦合简谐振子的同相振动模式. 观测量为萤火虫的闪烁频率和相位.\\
+
+\noindent \textbf{2.生物钟：}生物体的内在节律机制依赖于时钟蛋白浓度的振荡，这种周期性变化在分子水平上形成负反馈环路，其动力学特性与谐振子类似. 此时观测量为蛋白浓度的变化周期等.\\
+
+\noindent \textbf{3.心脏的跳动：}心脏的跳动由心肌起搏细胞完成，而起搏过程依赖于膜电位的周期性变化. 动作电位的变化由FitzHugh-Nagumo方程刻画，该方程正建立在在谐振子模型的基础上（引入了非线性的耦合项）. 此时观测量为心肌细胞的膜电位变化周期、相对相位、振幅/心脏跳动的频率等.\\
+
+\noindent \textbf{4.气候\&社会\&经济的周期规律：} 地质历史上气温存在大周期性的波动，社会经济存在供需关系/市场繁荣程度的周期性涨落，这些现象在粗略近似下都可以用谐振子模型描述. 此时观测量为气温/经济指标的变化周期，各周期的波动幅度等.\\
+
+\noindent \textbf{5. 复杂系统：} 一些复杂系统的近平衡态行为可以用耦合谐振子网络模型来描述，如大规模电力系统的供能分布、神经元网络的工作模式等. 此时观测量为各个节点的振动频率、相对相位以及振幅等.\\
+
+\subsection*{2.\quad 新增测量讨论}
+在本次实验中，我们设定激励源输出固有频正弦信号，以研究耦合摆的振动模式. \textbf{但设想我们输出一个波包/脉冲信号，将观测到什么现象？}
+
+如图$6.(a)$所示，在耦合摆通带内设定激励源输出频率为$\omega_0$且被低频$\Delta \omega$调制的正弦信号，可以观察到波包无衰减地在摆链中传播. 由于群速度$v_g=d\omega/dk$表示的正是波包（能量）的传播速度，故可以利用示波器的“时间测量”功能，通过测量波包从$0$号摆球传播到$14$号摆球的时间间隔$\Delta t$和间距$d$\footnote{这里的间距是约化的无量纲间隔，对于本实验$N=15$的耦合摆而言就应该是14.相应地，波速的单位是$\mathrm{s^{-1}.}$}，从而\textbf{测定波的群速度$v_g$}. 同时，我们也可以利用$(4)$式计算出$v_g$的理论值，从而与实验值进行对比，验证色散关系.\\
+
+设定激励源输出的正弦信号频率$f_0=1.000\mathrm{Hz}$，调幅低频$\Delta f=100\mathrm{mHz}$，调制类型设定为AM,调制深度设置为100\%.作为验证，首先利用示波器的FFT功能来分析信号的频谱，结果如图$6.(b)$所示：\\ 
+
+\begin{figure}[htbp]
+  \centering
+   \subfloat[调制信号的波形图]
+   {\includegraphics[width=0.4\textwidth]{1.jpg}}
+   \qquad
+   \subfloat[调制信号的频谱图]
+   {\includegraphics[width=0.4\textwidth]{2.jpg}}
+   \caption*{图$6.\quad$调制信号示意图}
+  \end{figure}
+
+可见频谱集中在$f_0\pm \Delta f$附近，的确生成了窄带波包. 随后，我们将示波器设置为“单次触发”模式，启动激励源，便能观察波包在摆链中的传播情况.
+
+利用“时间测量”功能可以测定波包到达传感器的时刻，如图7所示.不过经实际操作发现，由于波包的的信号范围较宽，上升时间“Rise”的读数不太准确.\\
+
+\textbf{因此，我们考虑改为使用脉冲信号}，因为这样的波形信号幅度变化速度很快，更容易准确测量Rise与Fall的时刻. 设置信号源输出频率为$f=1.000\mathrm{Hz}$，时间间隔为$T=10.0s$的正弦脉冲信号，利用示波器测量信号从$0$号摆球传播到$14$号摆球的时间，结果如图$8$所示：\footnote{图$8$两张分图是分别抓拍的，不对应于同一次测量结果.}\\
+
+\clearpage
+
+\begin{figure}[htbp]
+  \centering
+   \subfloat[scale: $T=1.000s$]
+   {\includegraphics[width=0.4\textwidth]{3.jpg}}
+   \qquad
+   \subfloat[scale: $T=2.000s$]
+   {\includegraphics[width=0.4\textwidth]{4.jpg}}
+   \caption*{图$7.\quad$调制波包的时间测量}
+  \end{figure}
+
+  \begin{figure}[!htbp]
+    \centering
+     \subfloat[信号源的时间测量]
+     {\includegraphics[width=0.4\textwidth]{6.jpg}}
+     \qquad
+     \subfloat[$14$号摆球的时间测量]
+     {\includegraphics[width=0.4\textwidth]{5.jpg}}
+\caption*{图$8.\quad$脉冲信号的时间测量}
+    \end{figure}
+
+\noindent \textbf{测量结果：} $d\sim 14$（单位距离），$\Delta t\approx 8.2\mathrm{s}-7.98\mathrm{s}=0.22\mathrm{s}$，故群速度的实验值可估算为：
+    \begin{equation*}
+      v_g=\frac{d}{\Delta t}\sim 6.37\mathrm{s^{-1}}
+    \end{equation*}
+
+\noindent 而根据B.2的结果，$f_0=1.000\mathrm{Hz}$对应的波数$k\sim0.416$，故群速度的理论值为：
+\begin{equation*}
+  v_g=\displaystyle\Big(\frac{\mathrm{d}\omega}{\mathrm{d}k}\Big)\Big|_{2\pi f=1.00\mathrm{Hz}}=\frac{\mathrm{d}}{\mathrm{d}k}\Big(\sqrt{\omega_p^2+4\omega_s^2\sin^2\Big(\frac{k}{2}\Big)}\Big)\Big|_{2\pi f=1.00\mathrm{Hz}}\sim 7.23\mathrm{s^{-1}}
+\end{equation*}
+\\
+\noindent 对比实验值与参考值，可见测定的结果偏小，这可能与B.3中$\omega_s$的实验测定值偏小有关.\\
+
+\end{document}

@@ -1,0 +1,204 @@
+\documentclass{ctexart}
+
+\usepackage{yzy}
+
+\title{粘弹性实验报告}
+\class{物理 32}
+\name{杨泽宇}
+\id{2023011329}
+
+\begin{document}
+\maketitle
+
+\section*{摘要}
+本实验通过建立多重粘弹性过程的模型，探究了细线在应力弛豫条件下的粘弹性行为。实验结果表明，所采用的模型与材料的力学性质吻合得很好。
+
+
+\section{实验原理}
+固体材料受到较小外力$F$时，会发生遵循胡克定律的可逆形变$\Delta l=l-l_0$。若定义应力$\sigma=\frac{F}{S}$, 应变$\varepsilon=\frac{l-l_0}{l_0}$, 则上述性质可以表达为：
+\begin{equation}
+  \sigma=E\varepsilon
+\end{equation}
+其中$S$为受力面积，比例系数$E$称为杨氏模量。
+
+当外力较大，超过弹性极限时，材料会逐渐发生不可逆的塑性形变。这种现象称为粘弹性。描述线性粘弹性的唯像模型是\textbf{标准线性固体模型}，如图1所示，其中弹簧代表纯弹性部分，罐子代表纯粘性部分。
+\begin{figure}[h]                                           
+  \includegraphics[scale=0.45]{2.png}
+  \qquad
+  \includegraphics[scale=0.43]{3.png}
+\end{figure}
+
+对此模型进行定量分析，可以得到总应力与总应变的关系：
+\begin{equation}
+  \sigma(t)=E_0\varepsilon(t)+\tau_1(E_0+E_1)\frac{d\varepsilon(t)}{dt}-\tau_1\frac{d\sigma}{dt}
+\end{equation}
+其中$\tau_1=\frac{\eta_1}{E_1}$，$\eta_1$为粘度系数，$E_1$为杨氏模量。可见此时$\sigma(t)$与$\varepsilon(t)$之间的关系不再满足胡克定律。
+
+在$\displaystyle\frac{d\varepsilon}{dt}=0$的所谓\textbf{应力弛豫条件}下，应变$\varepsilon$保持恒定，从而可以得出上式中$\sigma(t)$的解：
+\begin{equation}
+  \sigma(t)=\varepsilon(E_0+E_1e^{-t/\tau_1})
+\end{equation}
+可见在此条件下，应力$\sigma(t)$随时间呈指数衰减，且特征时间为$\tau_1$。
+
+标准线性模型也可以扩展为\textbf{多重粘弹性过程}（如图2所示），包含$n$种不同的粘弹性成分。此时在应力弛豫条件下，各项应力仍应随时间指数型衰减，故$(1.3)$的解可以扩展为：
+\begin{equation}
+  \sigma(t)=\varepsilon\Big(E_0+\sum_kE_ke^{-t/\tau_k}\Big)\quad (k=1,2,\cdots,n)
+\end{equation}
+
+\section{实验仪器及实验内容}
+\subsection*{1.\quad 仪器介绍}
+本实验利用塑料螺丝与螺帽，将中心带孔的不锈钢圆柱固定于待测细线末端，并悬挂于架子上以保持恒定应变。同时提供量程$600\mathrm{g}$，分辨力$0.01\mathrm{g}$的电子天平、卷尺、计时器及录像用的手机（自带）。
+
+\subsection*{2\quad 实验步骤}
+\subsubsection*{A\quad 测试应力弛豫条件下细线的应力——时间关系}
+
+\noindent 1. 剪一根长约$55\mathrm{cm}$的细线，利用螺丝与螺帽将其和不锈钢圆柱固定；利用电子天平测出圆柱与固定于其上的螺钉螺帽的总质量$m_0$；将细线的另一端与螺丝螺帽固定。  \\ 
+\noindent 2. 用卷尺测量细线没有被拉长的情况下两个螺帽之间的长度$l_0$。   \\
+\noindent 3. 将不锈钢圆柱置于电子天平上，线的另一端置于架子上，\textbf{与此同时开始计时}。注意提前开启手机录像，记录计时器与电子天平示数，测量大约$35\mathrm{min}$。   \\
+\noindent 4. 测量被拉伸的细线的最终长度$l$，由此计算细线应变$\varepsilon$。 \\
+
+\subsubsection*{B\quad 数据分析}
+\noindent 1. 利用A.3测得的数据，计算细线下端受到的拉力$F$，并作图表示拉力随时间变化关系。 \\
+\noindent 2. 说明如果细线如果是纯弹性的，拉力将如何随时间变化。\\
+
+将$(1.4)$式改写为：
+\begin{equation}
+  \frac{\sigma}{\varepsilon}=E_0+E_1e^{-t/\tau_1}+E_2e^{-t/\tau_2}+E_3e^{-t/\tau_3}+\cdots \quad (\tau_1>\tau_2>\tau_3>\cdots)
+\end{equation}
+以下即求解细线的各项参数。\\
+
+\noindent 3. 计算所测各组数据的$\sigma/\varepsilon$，设细线的直径为$0.5\mathrm{mm}$。再计算$d(\sigma/\varepsilon)/dt$的值（通过相邻两个数据点$\Delta(\sigma/\varepsilon)/\Delta t$计算）\\
+\noindent 4. 写出$d(\sigma/\varepsilon)/dt$理论表达式。\\
+\noindent 5. 计算$\ln[-d(\sigma/\varepsilon)/dt]$，画出其随时间变化的关系图，并从图中判断两者变化开始吻合线性关系的时间$t_1$；由此通过直线拟合确定参数$E_1$和$\tau_1$。 \\
+\noindent 6. 由$E_1$和$\tau_1$，利用时间大于$t_1$的数据，确定参数$E_0$。   \\
+\noindent 7. 从B.3中各组$\sigma/\varepsilon$数据中减去减去$E_0+E_1e^{-t/\tau_1}$，计算对应的数值。\\
+
+\noindent 8. 由B.7中时间小于$t_1$的数据确定第二粘弹性项的参数$E_2$和$\tau_2$。\\
+\noindent 9. 重复上述过程，确定第三粘弹性项的参数$E_3$和$\tau_3$，......\\
+\noindent 10. 由确定的各项杨氏模量$E_k$和衰减时间常数$\tau_k$，计算拉力$F$的理论
+值。将理论值随时间的变化关系画在B.1的图中，与实验数据相比较。\\
+\clearpage
+
+\section{数据处理}
+
+\subsection*{A\quad 测试应力弛豫条件下细线的应力——时间关系}
+\noindent $m_0=79.33\mathrm{g}$\\
+\noindent $l_0=44.50\mathrm{cm} \quad l=48.45\mathrm{cm} \quad \varepsilon=0.088764$
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.42]{4.png}
+\end{figure}
+
+\subsection*{B\quad 数据处理}
+\subsection*{B.1,2}
+\noindent $F=m_0g-m_{\text{示}}g,\quad g=9.8\mathrm{m/s^2}$
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.42]{5.png}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{6.png}
+\end{figure}
+可见拉力大小随时间呈指数衰减。而如果细线是纯弹性的，拉力将经历小幅暂态扰动后稳定在$t=0$时的初值。
+
+\subsection*{B.3}
+\noindent $d=0.5\mathrm{mm}, \quad S=\frac{\pi d^2}{4}=1.9635\times10^{-5}\mathrm{m^2}$
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{7.png}
+\end{figure}
+\subsection*{B.4,5,6}
+将$(2.1)$式对时间求导，可以得到：
+\begin{equation}
+  \frac{d(\sigma/\varepsilon)}{dt}=-\frac{E_1}{\tau_1}e^{-t/\tau_1}-\frac{E_2}{\tau_2}e^{-t/\tau_2}-\frac{E_2}{\tau_3}e^{-t/\tau_3}-\cdots
+\end{equation}
+当$t\rightarrow\infty$时，仅需考虑第一项，则取对数得：
+\begin{equation}
+  \ln\left(-\frac{d(\sigma/\varepsilon)}{dt}\right)=\ln\left(\frac{E_1}{\tau_1}\right)-\frac{t}{\tau_1}
+\end{equation}
+接下来便来通过直线拟合确定第零阶及第一阶粘弹性参数。
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{8.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{9.png}
+\end{figure}
+
+\noindent 由此可以确定：$t_1\approx 650\mathrm{s}$，故$t>t_1$的测量结果可视为线性关系。\\
+\noindent 直线拟合的结果为：
+ $b_1=-\frac{1}{\tau_1}=-0.000839276,\quad b_0=\ln\left(\frac{E_1}{\tau_1}\right)=7.821866655.$\\
+故可以得到：$E_1=2.9723\times10^6\mathrm{Pa},\quad \tau_1=1191.5\mathrm{s}$。\\
+由此可以计算出：$E_0=\sigma/\varepsilon-E_1e^{-t/\tau_1}=2.9635\times10^7\mathrm{Pa}$。
+
+\subsection*{B.7,8,9,10}
+在第二次直线拟合中，我们考虑：
+\begin{equation}
+  \frac{\sigma}{\varepsilon}-(E_0+E_1e^{-t/\tau_1})=E_2e^{-t/\tau_2}+E_3e^{-t/\tau_3}+\cdots
+\end{equation}
+当$t$较大（但小于$t_1$）时，我们仅需考虑第二粘弹性项，则取对数得：
+\begin{equation}
+  \ln\left(\frac{\sigma}{\varepsilon}-(E_0+E_1e^{-t/\tau_1})\right)=\ln E_2-\frac{t}{\tau_2}
+\end{equation}
+接下来便来通过直线拟合确定第二阶粘弹性参数。
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{11.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.54]{10.png}
+\end{figure}
+
+\noindent 由此可以确定：$t_2\approx 0$，即初始时间段的图像也近似满足线性关系。故此时第三粘弹性项可以忽略不计，不再需要讨论更高阶的粘弹性项。\\
+\noindent 直线拟合的结果为：
+ $b_1=-\frac{1}{\tau_2}=-0.081788628 ,\quad b_0=\ln{E_2}=15.26699114.$\\
+故可以得到：$E_2=4.2695\times10^6\mathrm{Pa},\quad \tau_2=12.23\mathrm{s}$。\\
+
+因此，我们可以最终写出拉力$F$的理论表达式：
+\begin{equation}
+  F=\varepsilon S(E_0+E_1e^{-t/\tau_1}+E_2e^{-t/\tau_2})
+\end{equation}
+由此可以计算拉力的理论值，并绘出其随时间变化的图像，并于与实测图像对比。
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{13.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{12.png}
+\end{figure}
+
+由此可见：理论预测与实验结果吻合得相当好，计算至第二粘弹性项的模型已经足够精确。
+\clearpage
+\section{讨论}
+
+在本次实验中，我们运用多重粘弹性模型，对细线在应力弛豫条件下的粘弹性行为进行了研究,并测定了相关的粘弹性系数。实验结果表明：所采用的模型与材料的力学性质较好地吻合，其合理性得到了验证。\textbf{同时，我们在实验中也发现了以下问题：}
+\begin{itemize}
+  \item 在测量的开始阶段，细线应力的衰减变化很快，这导致电子秤示数的记录存在较大的系统误差，从而可能造成拟合结果的偏差。
+  \item 在$35\mathrm{min}$测量过程中，细线的应力变化受外界影响较大，尤其在测量后期应力变化较为缓慢时，很容易由于外界力学扰动产生较大波动。
+  \item 在实验中，我们仅考虑到第二项粘弹性项，与一般理论预测给出的应考虑到第三项粘弹性项的情况有所出入。同时注意到测量得到的第二特征时间$\tau_2$较小（与$\tau_1$相差两个数量级），这有可能进一步放大测量的误差。
+\end{itemize}
+\textbf{针对以上实验结果与问题，我们有以下建议：}\\
+\noindent 1. 在测定细线应力变化时可以考虑采用更为精确的记录仪器与计时系统，以减小系统性误差。\\
+\noindent 2. 应保持测量时的环境条件尽量稳定。\\
+\noindent 3. 可以增加实验数据的采集，以减小拟合误差；或考虑增长测量时间，以更好地观察细线的粘弹性行为。\\
+\noindent 4. 我们本次实验只探究了应力弛豫条件下细线的粘弹性行为，后续可以进一步研究其在不同力学条件（如$d\sigma/dt=0$的蠕变条件）
+下的行为，进一步探究所采用的理论模型的合理性。
+
+
+
+\section{原始数据}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{1.png}
+\end{figure}
+
+
+\end{document}
